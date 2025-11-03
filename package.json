@@ -7,6 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
+    "build:meta": "node tools/apply-meta-template.js",
+    "build:social": "node tools/generate-social-image.js",
     "test": "npm run test:page-transitions",
     "test:page-transitions": "node tests/playwright/page-transition-sequence.js"
   },

@@ -142,8 +142,18 @@
           ショートカットで入力欄を表示して文字列の挿入をスムーズに行えます。
           入力、送信フローのアプリ間による差異を吸収し、モダンな入力体験を実現します。</p>
         <div class="overflow-hidden rounded-[28px] border border-white/10 bg-black/20 p-3 shadow-inner">
-          <img src="screenshot.png" alt="TypeFetch screenshot" class="w-full rounded-[22px] object-cover" loading="lazy">
+          <img src="TypeFetch.gif" alt="TypeFetch screenshot" class="w-full rounded-[22px] object-cover" loading="lazy">
         </div>
+        <section class="mt-10" aria-labelledby="purchase-card-title">
+          <div class="purchase-card rounded-[28px] border border-accent/40 bg-white/5 p-6 shadow-[0_32px_80px_-48px_rgba(56,249,215,0.65)] backdrop-blur-sm">
+            <div class="space-y-4 text-center">
+              <h2 id="purchase-card-title" class="text-lg font-semibold text-white" data-i18n="purchaseTitle">購入はこちらから</h2>
+              <div class="flex justify-center">
+                <iframe frameborder="0" src="https://itch.io/embed/4010649?linkback=true&amp;bg_color=a497f7&amp;fg_color=120085&amp;link_color=120085&amp;border_color=8b97d7" width="552" height="167" style="max-width: 100%; border-radius: 18px;"><a href="https://masashi-desu.itch.io/typefetch">TypeFetch by Masashi_desu</a></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </main>
@@ -166,7 +176,8 @@
       const STORAGE_KEY = 'mdw-lang';
       const translations = {
         ja: {
-          body: 'TypeFetchは、ショートカット一つで呼び出せるライトウェイトな入力ツールです。\nショートカットで入力欄を表示して文字列の挿入をスムーズに行えます。\n入力、送信フローのアプリ間による差異を吸収し、モダンな入力体験を実現します。'
+          body: 'TypeFetchは、ショートカット一つで呼び出せるライトウェイトな入力ツールです。\nショートカットで入力欄を表示して文字列の挿入をスムーズに行えます。\n入力、送信フローのアプリ間による差異を吸収し、モダンな入力体験を実現します。',
+          purchaseTitle: '購入はこちらから'
         },
         en: {
           tag: 'macOS Utility',
@@ -176,6 +187,7 @@
           badge1: 'Typing Utility',
           badge2: 'Keyboard-first UX',
           back: '← Back to List',
+          purchaseTitle: 'Purchase or Download',
           themeLabel: 'Theme',
           themeSystem: 'System',
           themeLight: 'Light',

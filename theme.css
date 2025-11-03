@@ -169,6 +169,10 @@ body.page-transition-visible .page-transition-target {
   background-color: rgba(248, 250, 252, 0.7);
 }
 
+:root[data-theme="light"] .purchase-card {
+  box-shadow: none;
+}
+
 :root[data-theme="light"] .bg-white\/10 {
   background-color: rgba(244, 246, 250, 0.78);
 }
@@ -295,6 +299,11 @@ body.page-transition-visible .page-transition-target {
 :root[data-theme="light"] .bg-glow\/30 {
   --tw-bg-opacity: 0.18;
   background-color: rgba(255, 201, 150, var(--tw-bg-opacity));
+}
+
+:root[data-theme="light"] .bg-glow\/40 {
+  --tw-bg-opacity: 0.26;
+  background-color: rgba(253, 139, 44, var(--tw-bg-opacity));
 }
 
 :root[data-theme="light"] .hover\:bg-accent\/10:hover {

@@ -27,6 +27,7 @@ jobs:
       - name: Prepare static artifact
         run: |
           mkdir -p dist
+          touch dist/.nojekyll
           cp index.html dist/
           cp theme.css dist/
           cp theme.js dist/

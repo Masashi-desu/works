@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surround1x0-AKDK | Masahi Desu Works</title>
+  <meta name="description" content="Split keyboard with trackball module.">
+  <meta name="date" content="2025-08-01">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Outfit"', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            ink: '#0f172a',
+            accent: '#38f9d7',
+            glow: '#6366f1'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../theme.css">
+  <script>
+    (function () {
+      const root = document.documentElement;
+      try {
+        const stored = localStorage.getItem('mdw-theme');
+        const preference = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const effective = preference === 'light' || preference === 'dark'
+          ? preference
+          : (prefersDark ? 'dark' : 'light');
+        root.dataset.theme = effective;
+        root.dataset.themePreference = preference;
+      } catch (error) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = prefersDark ? 'dark' : 'light';
+        root.dataset.themePreference = 'system';
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-ink font-sans text-slate-100 antialiased relative overflow-x-hidden">
+  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
+    <div class="absolute top-20 left-10 h-72 w-72 rounded-full bg-glow/30 blur-3xl"></div>
+    <div class="absolute bottom-[-6rem] right-[10%] h-[32rem] w-[32rem] rounded-full bg-accent/20 blur-[140px]"></div>
+  </div>
+  <div class="px-6 pt-8" data-transition-fade>
+    <div class="mx-auto flex max-w-6xl">
+      <a href="../products.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-1.5 text-sm font-medium text-accent transition hover:border-accent hover:bg-accent/10">
+        <span data-i18n="back">← 一覧に戻る</span>
+      </a>
+    </div>
+  </div>
+  <main class="relative mx-auto flex w-full max-w-6xl items-start px-6 pt-16 pb-0 lg:pt-20 lg:pb-0" data-transition-fade>
+    <!-- プロトタイプ概要 -->
+    <article class="grid w-full gap-10 rounded-[36px] border border-white/10 bg-white/5 p-10 shadow-[0_40px_80px_-40px_rgba(56,249,215,0.45)] backdrop-blur lg:grid-cols-[1.3fr_1fr]">
+      <div class="space-y-6">
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-[0.35em] text-slate-400" data-i18n="tag">Experimental Hardware</p>
+          <h1 class="text-4xl font-semibold text-white" data-i18n="title">Surround1x0-AKDK</h1>
+          <time class="block text-xs uppercase tracking-[0.3em] text-slate-500" datetime="2025-08-01" data-zi18n="date">2025年8月1日</time>
+        </div>
+        <p class="whitespace-pre-line" data-i18n="body">
+          Surround1x0-AKDKは、分割レイアウトとトラックボールモジュールを組み合わせた実験的な入力デバイスです。
+          GUIの操作と入力の切り替えをスムーズに行い、現代のコンピュータに最適な入力インターフェースを提供します。
+        </p>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div class="rounded-3xl border border-white/10 bg-black/30 p-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-slate-400" data-i18n="materialsTitle">Materials</p>
+            <p class="mt-2 text-sm text-slate-200" data-i18n="materialsBody">3Dプリンタ出力 PLA</p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-black/30 p-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-slate-400" data-i18n="moduleTitle">Interface</p>
+            <p class="mt-2 text-sm text-slate-200" data-i18n="moduleBody">トラックボール + 40%キーボード</p>
+          </div>
+        </div>
+      </div>
+      <figure class="relative overflow-hidden rounded-[28px] border border-white/10">
+        <img src="Surround1x0-AKDK.png" alt="Surround1x0-AKDK hero image" class="block h-full w-full object-cover" loading="lazy">
+      </figure>
+      <div class="flex justify-end lg:col-span-2">
+        <a href="https://github.com/Masashi-desu/Surround1x0-AKDK" target="_blank" rel="noopener noreferrer" data-pressable="true" class="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2 text-sm font-semibold text-accent transition hover:border-accent hover:bg-accent/20">
+          <span>リポジトリを見る</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+  </main>
+  <div class="px-6 mt-16 pb-5 lg:mt-20" data-transition-fade>
+    <div class="mx-auto flex max-w-6xl">
+      <a href="../products.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-1.5 text-sm font-medium text-accent transition hover:border-accent hover:bg-accent/10">
+        <span data-i18n="back">← 一覧に戻る</span>
+      </a>
+    </div>
+  </div>
+  <footer class="px-6 pb-12">
+    <div class="mx-auto flex max-w-6xl justify-end">
+      <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
+    </div>
+  </footer>
+  <script src="../../theme.js"></script>
+  <script src="../../footer.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'mdw-lang';
+      const translations = {
+        en: {
+          tag: 'Experimental Hardware',
+          title: 'Surround1x0-AKDK',
+          date: 'August 1, 2025',
+          body: 'Surround1x0-AKDK is an experimental input device that combines a split layout with a trackball module.\nIt lets you switch smoothly between pointing and typing, providing an interface that fits modern computers.',
+          materialsTitle: 'Materials',
+          materialsBody: '3D-printed PLA',
+          moduleTitle: 'Module',
+          moduleBody: 'Trackball + 40% keyboard',
+          back: '← Back to List',
+          themeLabel: 'Theme',
+          themeSystem: 'System',
+          themeLight: 'Light',
+          themeDark: 'Dark'
+        }
+      };
+      const fallbackCopy = {};
+      let currentLocale = resolveLocale(readStoredLanguage() || 'ja');
+
+      function recordFallbacks() {
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key || Object.prototype.hasOwnProperty.call(fallbackCopy, key)) {
+            return;
+          }
+          fallbackCopy[key] = el.textContent.replace(/\s+$/u, '');
+        });
+      }
+
+      function resolveLocale(locale) {
+        return Object.prototype.hasOwnProperty.call(translations, locale) ? locale : 'ja';
+      }
+
+      function syncLanguageSelects(lang) {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          if (select.value !== lang) {
+            select.value = lang;
+          }
+        });
+      }
+
+      function updateLanguage(locale) {
+        recordFallbacks();
+        const lang = resolveLocale(locale);
+        currentLocale = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key) {
+            return;
+          }
+          if (lang === 'ja') {
+            const fallback = fallbackCopy[key];
+            if (typeof fallback === 'string') {
+              el.textContent = fallback;
+            }
+            return;
+          }
+          const text = translations[lang][key];
+          if (typeof text === 'string') {
+            el.textContent = text;
+            return;
+          }
+          const fallback = fallbackCopy[key];
+          if (typeof fallback === 'string') {
+            el.textContent = fallback;
+          }
+        });
+        syncLanguageSelects(lang);
+        try {
+          localStorage.setItem(STORAGE_KEY, lang);
+        } catch (error) {
+          /* ignore */
+        }
+        return lang;
+      }
+
+      function readStoredLanguage() {
+        try {
+          return localStorage.getItem(STORAGE_KEY);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      const controller = window.MDWLanguageTransition
+        ? window.MDWLanguageTransition.create((lang) => updateLanguage(lang), { duration: 320 })
+        : null;
+
+      function applyLanguage(locale, options = {}) {
+        const target = resolveLocale(locale);
+        if (controller) {
+          controller.apply(target, options);
+        } else {
+          updateLanguage(target);
+        }
+      }
+
+      function setupLanguageSelector() {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          if (select.dataset.bound === 'true') {
+            select.value = currentLocale;
+            return;
+          }
+          select.dataset.bound = 'true';
+          select.addEventListener('change', (event) => {
+            applyLanguage(event.target.value, { animate: true });
+          });
+          select.value = currentLocale;
+        });
+      }
+
+      applyLanguage(currentLocale);
+      setupLanguageSelector();
+      window.addEventListener('mdw:footer-loaded', () => {
+        setupLanguageSelector();
+        applyLanguage(currentLocale);
+      });
+    })();
+  </script>
+</body>
+</html>

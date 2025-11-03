@@ -1,0 +1,38 @@
+[
+  {
+    "delay": 0,
+    "bodyColor": "rgb(15, 23, 42)",
+    "bodyLuminance": 0.008815176790098227,
+    "cardColor": null
+  },
+  {
+    "delay": 80,
+    "bodyColor": "rgb(51, 58, 75)",
+    "bodyLuminance": 0.042379193158267464,
+    "cardColor": null
+  },
+  {
+    "delay": 160,
+    "bodyColor": "rgb(87, 93, 107)",
+    "bodyLuminance": 0.10916475159550913,
+    "cardColor": null
+  },
+  {
+    "delay": 320,
+    "bodyColor": "rgb(159, 162, 172)",
+    "bodyLuminance": 0.36190146797578315,
+    "cardColor": null
+  },
+  {
+    "delay": 640,
+    "bodyColor": "rgb(246, 247, 251)",
+    "bodyLuminance": 0.9307939356526362,
+    "cardColor": null
+  },
+  {
+    "delay": 800,
+    "bodyColor": "rgb(246, 247, 251)",
+    "bodyLuminance": 0.9307939356526362,
+    "cardColor": null
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "dir": "WinKinesis/",
+    "title": "WinKinesis",
+    "title_ja": "WinKinesis",
+    "title_en": "WinKinesis",
+    "desc": "Smart window manager for macOS.",
+    "desc_ja": "macOS向けのスマートなウィンドウマネージャー。",
+    "desc_en": "Smart window manager for macOS.",
+    "image": "icon.png",
+    "header": "winkinesis.gif",
+    "date": "2025-10-30",
+    "url": "https://winkinesis.xyz"
+  },
+  {
+    "dir": "TypeFetch/",
+    "title": "TypeFetch",
+    "title_ja": "TypeFetch",
+    "title_en": "TypeFetch",
+    "desc": "Quick inline text input tool.",
+    "desc_ja": "ショートカットで呼び出すインライン入力ツール。",
+    "desc_en": "Quick inline text input tool.",
+    "image": "icon.png",
+    "header": "screenshot.png",
+    "date": "2025-11-03",
+    "url": ""
+  },
+  {
+    "dir": "Surround1x0-AKDK/",
+    "title": "Surround1x0-AKDK",
+    "title_ja": "Surround1x0-AKDK",
+    "title_en": "Surround1x0-AKDK",
+    "desc": "Split keyboard with trackball module.",
+    "desc_ja": "トラックボールを備えた分割型キーボードプロトタイプ。",
+    "desc_en": "Split keyboard with trackball module.",
+    "image": "",
+    "header": "header.png",
+    "date": "2025-08-01",
+    "url": ""
+  }
+]

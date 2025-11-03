@@ -1,0 +1,171 @@
+[
+  {
+    "slug": "index",
+    "samples": [
+      {
+        "delay": 0,
+        "bodyColor": "rgb(15, 23, 42)",
+        "bodyLuminance": 0.008815176790098227,
+        "cardColor": "rgba(255, 255, 255, 0.05)"
+      },
+      {
+        "delay": 80,
+        "bodyColor": "rgb(46, 53, 70)",
+        "bodyLuminance": 0.03569244707660466,
+        "cardColor": "rgba(250, 252, 253, 0.137)"
+      },
+      {
+        "delay": 160,
+        "bodyColor": "rgb(82, 88, 102)",
+        "bodyLuminance": 0.09732594606633171,
+        "cardColor": "rgba(249, 251, 252, 0.24)"
+      },
+      {
+        "delay": 320,
+        "bodyColor": "rgb(143, 147, 158)",
+        "bodyLuminance": 0.2917569867719447,
+        "cardColor": "rgba(248, 250, 252, 0.41)"
+      },
+      {
+        "delay": 640,
+        "bodyColor": "rgb(246, 247, 251)",
+        "bodyLuminance": 0.9307939356526362,
+        "cardColor": "rgba(248, 250, 252, 0.7)"
+      },
+      {
+        "delay": 800,
+        "bodyColor": "rgb(246, 247, 251)",
+        "bodyLuminance": 0.9307939356526362,
+        "cardColor": "rgba(248, 250, 252, 0.7)"
+      }
+    ]
+  },
+  {
+    "slug": "product-Surround1x0-AKDK",
+    "samples": [
+      {
+        "delay": 0,
+        "bodyColor": "rgba(0, 0, 0, 0)",
+        "bodyLuminance": 0,
+        "cardColor": null
+      },
+      {
+        "delay": 80,
+        "bodyColor": "rgba(248, 249, 252, 0.357)",
+        "bodyLuminance": 0.9473609709084969,
+        "cardColor": null
+      },
+      {
+        "delay": 160,
+        "bodyColor": "rgba(248, 249, 252, 0.843)",
+        "bodyLuminance": 0.9473609709084969,
+        "cardColor": null
+      },
+      {
+        "delay": 320,
+        "bodyColor": "rgb(248, 249, 252)",
+        "bodyLuminance": 0.9473609709084969,
+        "cardColor": null
+      },
+      {
+        "delay": 640,
+        "bodyColor": "rgb(248, 249, 252)",
+        "bodyLuminance": 0.9473609709084969,
+        "cardColor": null
+      },
+      {
+        "delay": 800,
+        "bodyColor": "rgb(248, 249, 252)",
+        "bodyLuminance": 0.9473609709084969,
+        "cardColor": null
+      }
+    ]
+  },
+  {
+    "slug": "product-TypeFetch",
+    "samples": [
+      {
+        "delay": 0,
+        "bodyColor": "rgba(0, 0, 0, 0)",
+        "bodyLuminance": 0,
+        "cardColor": null
+      },
+      {
+        "delay": 80,
+        "bodyColor": "rgba(250, 249, 247, 0.376)",
+        "bodyLuminance": 0.9479075739470884,
+        "cardColor": null
+      },
+      {
+        "delay": 160,
+        "bodyColor": "rgba(250, 249, 247, 0.89)",
+        "bodyLuminance": 0.9479075739470884,
+        "cardColor": null
+      },
+      {
+        "delay": 320,
+        "bodyColor": "rgb(250, 249, 247)",
+        "bodyLuminance": 0.9479075739470884,
+        "cardColor": null
+      },
+      {
+        "delay": 640,
+        "bodyColor": "rgb(250, 249, 247)",
+        "bodyLuminance": 0.9479075739470884,
+        "cardColor": null
+      },
+      {
+        "delay": 800,
+        "bodyColor": "rgb(250, 249, 247)",
+        "bodyLuminance": 0.9479075739470884,
+        "cardColor": null
+      }
+    ]
+  },
+  {
+    "slug": "product-WinKinesis",
+    "skipped": "meta-refresh",
+    "samples": []
+  },
+  {
+    "slug": "products",
+    "samples": [
+      {
+        "delay": 0,
+        "bodyColor": "rgb(15, 23, 42)",
+        "bodyLuminance": 0.008815176790098227,
+        "cardColor": null
+      },
+      {
+        "delay": 80,
+        "bodyColor": "rgb(51, 58, 75)",
+        "bodyLuminance": 0.042379193158267464,
+        "cardColor": null
+      },
+      {
+        "delay": 160,
+        "bodyColor": "rgb(87, 93, 107)",
+        "bodyLuminance": 0.10916475159550913,
+        "cardColor": null
+      },
+      {
+        "delay": 320,
+        "bodyColor": "rgb(159, 162, 172)",
+        "bodyLuminance": 0.36190146797578315,
+        "cardColor": null
+      },
+      {
+        "delay": 640,
+        "bodyColor": "rgb(246, 247, 251)",
+        "bodyLuminance": 0.9307939356526362,
+        "cardColor": null
+      },
+      {
+        "delay": 800,
+        "bodyColor": "rgb(246, 247, 251)",
+        "bodyLuminance": 0.9307939356526362,
+        "cardColor": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>製品一覧 | Masahi Desu Works</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Outfit"', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            ink: '#0f172a',
+            accent: '#38f9d7',
+            glow: '#6366f1'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../theme.css">
+  <script>
+    (function () {
+      const root = document.documentElement;
+      try {
+        const stored = localStorage.getItem('mdw-theme');
+        const preference = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const effective = preference === 'light' || preference === 'dark'
+          ? preference
+          : (prefersDark ? 'dark' : 'light');
+        root.dataset.theme = effective;
+        root.dataset.themePreference = preference;
+      } catch (error) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = prefersDark ? 'dark' : 'light';
+        root.dataset.themePreference = 'system';
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen bg-ink font-sans text-slate-100 antialiased relative overflow-x-hidden">
+  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
+    <div class="absolute -top-32 left-8 h-72 w-72 rounded-full bg-accent/30 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-glow/30 blur-3xl"></div>
+  </div>
+  <main class="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16" data-transition-ignore>
+    <header class="flex flex-col gap-4" data-transition-fade>
+      <!-- 製品一覧 -->
+      <p class="text-xs uppercase tracking-[0.35em] text-slate-400" data-i18n="sectionLabel">Product Portfolio</p>
+      <h1 class="text-4xl font-semibold tracking-tight" data-i18n="sectionTitle">プロダクト一覧</h1>
+      <p class="w-full text-base leading-relaxed text-slate-300" data-i18n="sectionBody">
+        macOS向けのプロダクティビティツールからハードウェアまで。ビルドを重ねてきたプロジェクトのスナップショットをこちらにまとめています。
+      </p>
+    </header>
+    <div id="product-grid" class="grid gap-8 sm:grid-cols-2 xl:grid-cols-3" data-transition-fade data-lang-sensitive></div>
+    <div class="flex flex-wrap items-center justify-between gap-6 text-sm text-slate-400" data-transition-fade>
+      <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-2 transition hover:border-white/30 hover:text-white" data-i18n="backHome">
+        ← ホーム
+      </a>
+      <span class="text-xs tracking-widest uppercase" data-i18n-scope="updatedLabel">
+        更新日: <time id="catalog-updated" class="text-slate-200"></time>
+      </span>
+    </div>
+  </main>
+  <footer class="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10 text-xs text-slate-500 md:flex-row md:items-start md:justify-between">
+    <span>© 2025 Masahi Desu Works</span>
+    <div data-include="footer" data-footer-src="../partials/footer.html"></div>
+  </footer>
+  <script src="../theme.js"></script>
+  <script src="../footer.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'mdw-lang';
+      const grid = document.getElementById('product-grid');
+      const updated = document.getElementById('catalog-updated');
+      const updatedScope = document.querySelector('[data-i18n-scope="updatedLabel"]');
+      const fallbackCopy = {};
+      const localeConfig = {
+        ja: {
+          sectionLabel: 'Product Portfolio',
+          sectionTitle: 'プロダクト一覧',
+          sectionBody: 'macOS向けのプロダクティビティツールからハードウェアまで。ビルドを重ねてきたプロジェクトのスナップショットをこちらにまとめています。',
+          backHome: '← ホーム',
+          updatedLabel: '更新日: ',
+          ctaExternal: '公式サイトへ',
+          ctaInternal: '詳細を見る',
+          themeLabel: 'テーマ',
+          themeSystem: 'システム',
+          themeLight: 'ライト',
+          themeDark: 'ダーク',
+          dateFormat: new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }),
+          updatedFormat: new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' })
+        },
+        en: {
+          sectionLabel: 'Product Portfolio',
+          sectionTitle: 'Products',
+          sectionBody: 'From macOS productivity tools to experimental hardware—discover snapshots of the projects we keep iterating on.',
+          backHome: '← Home',
+          updatedLabel: 'Updated: ',
+          ctaExternal: 'Visit Website',
+          ctaInternal: 'View Details',
+          themeLabel: 'Theme',
+          themeSystem: 'System',
+          themeLight: 'Light',
+          themeDark: 'Dark',
+          dateFormat: new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+          updatedFormat: new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })
+        }
+      };
+
+      let catalog = [];
+      let currentLocale = resolveLocale(readStoredLanguage() || 'ja');
+
+      function readStoredLanguage() {
+        try {
+          return localStorage.getItem(STORAGE_KEY);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function resolveLocale(locale) {
+        return localeConfig[locale] ? locale : 'ja';
+      }
+
+      function recordFallbacks() {
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key || Object.prototype.hasOwnProperty.call(fallbackCopy, key)) {
+            return;
+          }
+          fallbackCopy[key] = el.textContent.replace(/\s+$/u, '');
+        });
+      }
+
+      function syncLanguageSelects(lang) {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          if (select.value !== lang) {
+            select.value = lang;
+          }
+        });
+      }
+
+      function renderCards(locale) {
+        const lang = resolveLocale(locale);
+        grid.innerHTML = '';
+
+        catalog.forEach((item) => {
+          const isExternal = item.url && item.url.trim() !== '';
+          const link = document.createElement('a');
+          let internalHref = `${item.dir || ''}`;
+          if (!isExternal) {
+            if (!/\.html?$/.test(internalHref)) {
+              if (!internalHref.endsWith('/')) {
+                internalHref = `${internalHref}/`;
+              }
+              internalHref = `${internalHref}index.html`;
+            }
+          }
+          link.href = isExternal ? item.url : internalHref;
+          link.className = 'group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-white/5 p-6 shadow-2xl transition hover:border-white/20 hover:bg-white/10';
+          link.setAttribute('data-transition-fade', 'true');
+          link.dataset.pressable = 'true';
+          if (isExternal) {
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+          } else {
+            link.dataset.transitionDirection = 'right';
+          }
+
+          const glow = document.createElement('div');
+          glow.className = 'pointer-events-none absolute inset-x-0 top-0 h-24 -translate-y-16 rounded-full bg-accent/40 blur-3xl transition-opacity duration-500 group-hover:opacity-90';
+          glow.style.zIndex = '-1';
+
+          const baseTitle = item.title_en || item.title;
+          const headerPath = (item.header || '').trim();
+          const iconPath = (item.image || '').trim();
+          let icon = null;
+          if (iconPath) {
+            icon = document.createElement('img');
+            icon.src = `${item.dir}${iconPath}`;
+            icon.alt = `${baseTitle} icon`;
+          }
+
+          const hasHeader = Boolean(headerPath);
+          const hasIcon = Boolean(icon);
+          const hasMedia = hasHeader || hasIcon;
+
+          if (hasMedia) {
+            const mediaWrapper = document.createElement('div');
+            mediaWrapper.className = 'relative mb-4 h-40 w-full overflow-hidden rounded-2xl border border-white/10';
+
+            if (hasHeader) {
+              const headerImg = document.createElement('img');
+              headerImg.src = `${item.dir}${headerPath}`;
+              headerImg.alt = `${baseTitle} header image`;
+              headerImg.className = 'absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105';
+              mediaWrapper.appendChild(headerImg);
+            } else {
+              const placeholder = document.createElement('div');
+              placeholder.className = 'absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/40 to-slate-900/60';
+              mediaWrapper.appendChild(placeholder);
+            }
+
+            if (hasIcon) {
+              const iconBadge = document.createElement('div');
+              iconBadge.className = 'absolute bottom-4 left-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-transparent p-2 shadow-[0_12px_30px_rgba(15,23,42,0.45)] backdrop-blur-lg transition duration-300';
+              icon.className = 'h-12 w-12 rounded-xl object-cover';
+              iconBadge.appendChild(icon);
+              mediaWrapper.appendChild(iconBadge);
+            }
+
+            link.appendChild(mediaWrapper);
+          }
+
+          const title = document.createElement('h2');
+          title.textContent = lang === 'en' ? (item.title_en || item.title) : (item.title_ja || item.title);
+          title.className = 'text-2xl font-semibold text-white';
+          if (hasMedia) {
+            title.classList.add('mt-4');
+          } else {
+            title.classList.add('mt-2');
+          }
+
+          const desc = document.createElement('p');
+          desc.textContent = lang === 'en' ? (item.desc_en || item.desc) : (item.desc_ja || item.desc);
+          desc.className = 'mt-3 text-sm leading-relaxed text-slate-300';
+
+          const date = document.createElement('time');
+          date.dateTime = item.date;
+          date.textContent = localeConfig[lang].dateFormat.format(new Date(item.date));
+          date.className = 'mt-6 text-xs uppercase tracking-[0.3em] text-slate-400';
+
+          const cta = document.createElement('span');
+          cta.className = 'mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent transition group-hover:gap-3';
+          cta.textContent = isExternal ? localeConfig[lang].ctaExternal : localeConfig[lang].ctaInternal;
+
+          const arrow = document.createElement('span');
+          arrow.textContent = isExternal ? '↗' : '→';
+          arrow.className = 'transition-transform group-hover:translate-x-1';
+          cta.appendChild(arrow);
+
+          link.appendChild(glow);
+          link.appendChild(title);
+          link.appendChild(desc);
+          link.appendChild(date);
+          link.appendChild(cta);
+          grid.appendChild(link);
+        });
+
+        if (window.mdwTheme && typeof window.mdwTheme.focusPressables === 'function') {
+          window.mdwTheme.focusPressables(grid);
+        }
+
+        updated.textContent = localeConfig[lang].updatedFormat.format(new Date());
+        updatedScope.textContent = `${localeConfig[lang].updatedLabel}`;
+        updatedScope.appendChild(updated);
+      }
+
+      function updateLanguage(locale) {
+        recordFallbacks();
+        const lang = resolveLocale(locale);
+        currentLocale = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key) {
+            return;
+          }
+          if (lang === 'ja') {
+            const fallback = fallbackCopy[key];
+            if (typeof fallback === 'string') {
+              el.textContent = fallback;
+            }
+          } else {
+            const copy = localeConfig[lang][key];
+            if (typeof copy === 'string') {
+              el.textContent = copy;
+            } else {
+              const fallback = fallbackCopy[key];
+              if (typeof fallback === 'string') {
+                el.textContent = fallback;
+              }
+            }
+          }
+        });
+        syncLanguageSelects(lang);
+        try {
+          localStorage.setItem(STORAGE_KEY, lang);
+        } catch (error) {
+          /* ignore */
+        }
+        renderCards(lang);
+        return lang;
+      }
+
+      const controller = window.MDWLanguageTransition
+        ? window.MDWLanguageTransition.create((lang) => updateLanguage(lang), { duration: 320 })
+        : null;
+
+      function applyLanguage(locale, options = {}) {
+        const target = resolveLocale(locale);
+        if (controller) {
+          controller.apply(target, options);
+        } else {
+          updateLanguage(target);
+        }
+      }
+
+      function setupLanguageSelector() {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          if (select.dataset.bound === 'true') {
+            select.value = currentLocale;
+            return;
+          }
+          select.dataset.bound = 'true';
+          select.addEventListener('change', (event) => {
+            applyLanguage(event.target.value, { animate: true });
+          });
+          select.value = currentLocale;
+        });
+      }
+
+      window.addEventListener('mdw:footer-loaded', () => {
+        setupLanguageSelector();
+        applyLanguage(currentLocale);
+      });
+
+      applyLanguage(currentLocale);
+      setupLanguageSelector();
+
+      fetch('index.json')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('index.json の読み込みに失敗しました');
+          }
+          return response.json();
+        })
+        .then((items) => {
+          catalog = items;
+          applyLanguage(currentLocale);
+        })
+        .catch((error) => {
+          const notice = document.createElement('div');
+          notice.className = 'rounded-3xl border border-red-500/40 bg-red-500/10 p-6 text-sm text-red-200 backdrop-blur';
+          notice.textContent = error.message;
+          grid.replaceWith(notice);
+        });
+    })();
+  </script>
+</body>
+</html>

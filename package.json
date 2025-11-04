@@ -1,5 +1,5 @@
 {
-  "name": "masahi_desu-works",
+  "name": "works",
   "version": "1.0.0",
   "description": "製品ページなどの長文説明では、HTML の `<br>` ではなく改行コード (`\\n`) と `white-space: pre-line;` を組み合わせて改行を表現します。",
   "main": "footer.js",
@@ -14,16 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Masashi-desu/masahi_desu-works.git"
+    "url": "git+https://github.com/Masashi-desu/works.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Masashi-desu/masahi_desu-works/issues"
+    "url": "https://github.com/Masashi-desu/works/issues"
   },
-  "homepage": "https://github.com/Masashi-desu/masahi_desu-works#readme",
+  "homepage": "https://github.com/Masashi-desu/works#readme",
   "dependencies": {
     "playwright": "^1.56.1"
   }

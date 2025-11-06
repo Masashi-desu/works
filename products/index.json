@@ -10,7 +10,10 @@
     "image": "icon.png",
     "header": "winkinesis.gif",
     "date": "2025-10-30",
-    "url": "https://winkinesis.xyz"
+    "url": "https://winkinesis.xyz",
+    "categories": [
+      "MacApp"
+    ]
   },
   {
     "dir": "TypeFetch/",
@@ -23,7 +26,10 @@
     "image": "icon.png",
     "header": "TypeFetch.gif",
     "date": "2025-11-03",
-    "url": ""
+    "url": "",
+    "categories": [
+      "MacApp"
+    ]
   },
   {
     "dir": "Surround1x0-AKDK/",
@@ -36,6 +42,10 @@
     "image": "",
     "header": "header.png",
     "date": "2025-08-01",
-    "url": ""
+    "url": "",
+    "categories": [
+      "keyboard",
+      "prototype"
+    ]
   }
 ]

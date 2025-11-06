@@ -7,6 +7,8 @@
   const reduceMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
   const TRANSITION_DURATION = 750;
   const PAGE_TRANSITION_DURATION = 600;
+  // Overlay stays semi-transparent to avoid full-screen flash during theme fade.
+  const THEME_OVERLAY_OPACITY = 0.4;
   const TRANSITION_PENDING_KEY = 'mdw-transition-pending';
   const WINDOW_TRANSITION_KEY = 'mdwTransitionPending';
   const BODY_FADE_CLASS = 'page-transition-fade';
@@ -120,7 +122,7 @@
     }
     const computed = window.getComputedStyle(document.body);
     target.style.transition = 'none';
-    target.style.opacity = '1';
+    target.style.opacity = String(THEME_OVERLAY_OPACITY);
     target.style.backgroundColor = computed.backgroundColor || 'transparent';
     const backgroundImage = computed.backgroundImage;
     target.style.backgroundImage = backgroundImage && backgroundImage !== 'none' ? backgroundImage : 'none';

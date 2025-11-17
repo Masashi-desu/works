@@ -111,7 +111,7 @@
   </script>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-ink via-slate-900 to-black font-sans text-slate-100 antialiased relative overflow-x-hidden">
-  <div class="pointer-events-none absolute inset-y-0 left-1/2 -z-10 h-full w-[36rem] -translate-x-1/2 rounded-full bg-glow/30 blur-3xl" data-transition-ignore></div>
+  <div class="pointer-events-none absolute inset-y-0 left-1/2 -z-10 h-full w-[90vw] max-w-[36rem] -translate-x-1/2 rounded-full bg-glow/30 blur-3xl" data-transition-ignore></div>
   <div class="px-6 pt-6" data-transition-fade>
     <div class="mx-auto flex max-w-5xl">
       <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-1.5 text-sm font-medium text-accent transition hover:border-accent hover:bg-accent/10">
@@ -148,8 +148,17 @@
           <div class="purchase-card rounded-[28px] border border-accent/40 bg-white/5 p-6 shadow-[0_32px_80px_-48px_rgba(56,249,215,0.65)] backdrop-blur-sm">
             <div class="space-y-4 text-center">
               <h2 id="purchase-card-title" class="text-lg font-semibold text-white" data-i18n="purchaseTitle">購入はこちらから</h2>
-              <div class="flex justify-center">
-                <iframe frameborder="0" src="https://itch.io/embed/4010649?linkback=true&amp;bg_color=a497f7&amp;fg_color=120085&amp;link_color=120085&amp;border_color=8b97d7" width="552" height="167" style="max-width: 100%; border-radius: 18px;"><a href="https://masashi-desu.itch.io/typefetch">TypeFetch by Masashi_desu</a></iframe>
+              <div class="flex w-full justify-center">
+                <div class="w-full max-w-[552px] overflow-hidden rounded-[18px]">
+                  <iframe
+                    frameborder="0"
+                    src="https://itch.io/embed/4010649?linkback=true&amp;bg_color=a497f7&amp;fg_color=120085&amp;link_color=120085&amp;border_color=8b97d7"
+                    width="100%"
+                    height="167"
+                    class="h-[167px] w-full"
+                    loading="lazy"
+                  ><a href="https://masashi-desu.itch.io/typefetch">TypeFetch by Masashi_desu</a></iframe>
+                </div>
               </div>
             </div>
           </div>

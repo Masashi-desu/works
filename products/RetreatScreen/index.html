@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetreatScreen | Masahi Desu Works</title>
+  <!-- mdw:meta-config
+  {
+    "title": "RetreatScreen | Masahi Desu Works",
+    "description": "macOSで⌘⇧Spaceを押すだけでiPhone風のランチャーを全面表示するフルスクリーン・オーバーレイランチャー。",
+    "url": "https://masashi-desu.github.io/works/products/RetreatScreen/",
+    "ogType": "product",
+    "locale": "ja_JP",
+    "alternateLocales": ["en_US"],
+    "image": "https://masashi-desu.github.io/works/products/RetreatScreen/screenshot.png",
+    "imageAlt": "RetreatScreen のランチャーパネルイメージ",
+    "published": "2025-11-29",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "RetreatScreen",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "macOS Tahoe or later",
+      "description": "A full-screen iOS-style launcher for macOS that appears with ⌘⇧Space.",
+      "url": "https://masashi-desu.github.io/works/products/RetreatScreen/",
+      "image": [
+        "https://masashi-desu.github.io/works/products/RetreatScreen/screenshot.png"
+      ],
+      "datePublished": "2025-11-29",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Masahi Desu Works"
+      }
+    }
+  }
+  -->
+  <!-- mdw:meta:start -->
+  <meta name="description" content="macOSで⌘⇧Spaceを押すだけでiPhone風のランチャーを全面表示するフルスクリーン・オーバーレイランチャー。">
+  <meta property="og:site_name" content="Masahi Desu Works">
+  <meta property="og:type" content="product">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="RetreatScreen | Masahi Desu Works">
+  <meta property="og:description" content="macOSで⌘⇧Spaceを押すだけでiPhone風のランチャーを全面表示するフルスクリーン・オーバーレイランチャー。">
+  <meta property="og:url" content="https://masashi-desu.github.io/works/products/RetreatScreen/">
+  <meta property="og:image" content="https://masashi-desu.github.io/works/products/RetreatScreen/screenshot.png">
+  <meta property="og:image:alt" content="RetreatScreen のランチャーパネルイメージ">
+  <meta name="twitter:image" content="https://masashi-desu.github.io/works/products/RetreatScreen/screenshot.png">
+  <meta name="twitter:image:alt" content="RetreatScreen のランチャーパネルイメージ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RetreatScreen | Masahi Desu Works">
+  <meta name="twitter:description" content="macOSで⌘⇧Spaceを押すだけでiPhone風のランチャーを全面表示するフルスクリーン・オーバーレイランチャー。">
+  <link rel="canonical" href="https://masashi-desu.github.io/works/products/RetreatScreen/">
+  <meta property="article:published_time" content="2025-11-29">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "RetreatScreen",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "macOS Tahoe or later",
+    "description": "A full-screen iOS-style launcher for macOS that appears with ⌘⇧Space.",
+    "url": "https://masashi-desu.github.io/works/products/RetreatScreen/",
+    "image": [
+      "https://masashi-desu.github.io/works/products/RetreatScreen/screenshot.png"
+    ],
+    "datePublished": "2025-11-29",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Masahi Desu Works"
+    }
+  }
+  </script>
+  <!-- mdw:meta:end -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Outfit"', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            ink: '#0a102c',
+            accent: '#ff6b4a',
+            glow: '#0f1628'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../theme.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg-from: #1b2347;
+      --bg-via: #0e183a;
+      --bg-to: #050c21;
+      --bg-g1: rgba(255, 142, 102, 0.16);
+      --bg-g2: rgba(55, 87, 217, 0.18);
+      --bg-g3: rgba(255, 199, 142, 0.12);
+      --glass-panel-start: rgba(255, 255, 255, 0.15);
+      --glass-panel-end: rgba(255, 255, 255, 0.07);
+      --glass-chip-start: rgba(255, 255, 255, 0.2);
+      --glass-chip-end: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.24);
+      --glass-shadow: 0 24px 80px -46px rgba(4, 16, 77, 0.65);
+      --text-muted: #dfe6ff;
+    }
+    :root[data-theme="light"] {
+      --bg-from: #f8a45f;
+      --bg-via: #f27a6b;
+      --bg-to: #7b3f74;
+      --bg-g1: rgba(255, 198, 140, 0.35);
+      --bg-g2: rgba(255, 122, 110, 0.25);
+      --bg-g3: rgba(120, 88, 180, 0.18);
+      --glass-panel-start: rgba(255, 255, 255, 0.28);
+      --glass-panel-end: rgba(255, 255, 255, 0.16);
+      --glass-chip-start: rgba(255, 255, 255, 0.32);
+      --glass-chip-end: rgba(255, 255, 255, 0.18);
+      --glass-border: rgba(255, 255, 255, 0.36);
+      --glass-shadow: 0 24px 80px -46px rgba(232, 115, 95, 0.45);
+      --text-muted: #2d2c4f;
+    }
+    :root[data-theme="dark"] {
+      --bg-from: #0c122e;
+      --bg-via: #121c3f;
+      --bg-to: #06102c;
+      --bg-g1: rgba(255, 124, 92, 0.18);
+      --bg-g2: rgba(52, 82, 193, 0.2);
+      --bg-g3: rgba(255, 182, 141, 0.12);
+      --glass-panel-start: rgba(255, 255, 255, 0.18);
+      --glass-panel-end: rgba(255, 255, 255, 0.08);
+      --glass-chip-start: rgba(255, 255, 255, 0.22);
+      --glass-chip-end: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --glass-shadow: 0 24px 80px -46px rgba(6, 12, 46, 0.78);
+      --text-muted: #dfe5f5;
+      --text-on-bg: #ffffff;
+    }
+    .villa-bg {
+      background: radial-gradient(circle at 15% 18%, var(--bg-g1), transparent 38%),
+                  radial-gradient(circle at 82% 20%, var(--bg-g2), transparent 34%),
+                  radial-gradient(circle at 50% 82%, var(--bg-g3), transparent 46%),
+                  linear-gradient(135deg, var(--bg-from), var(--bg-via), var(--bg-to));
+      transition: background-color 0.9s ease, background-image 0.9s ease, background-position 0.9s ease, background-size 0.9s ease, color 0.4s ease;
+    }
+    .glass-panel {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: linear-gradient(135deg, var(--glass-panel-start), var(--glass-panel-end));
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+    }
+    .glass-chip {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(135deg, var(--glass-chip-start), var(--glass-chip-end));
+      border: 1px solid var(--glass-border);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32);
+      transition: background 0.45s ease, border-color 0.45s ease;
+    }
+    .glass-cta {
+      background: linear-gradient(120deg, #ff6b4a 0%, #f48b61 34%, #3052d9 100%);
+      box-shadow: 0 18px 52px -28px rgba(255, 107, 74, 0.55), 0 24px 80px -54px rgba(4, 16, 77, 0.7);
+    }
+    .glass-cta:hover { filter: saturate(1.08); }
+    .liquid-glow { background: transparent; }
+    .section-card {
+      border-radius: 32px;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--glass-panel-start), var(--glass-panel-end));
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--glass-shadow);
+    }
+    .hero-header-card {
+      border-radius: 18px;
+      padding: 0.9rem 1.25rem;
+      background: linear-gradient(135deg, var(--glass-chip-start), var(--glass-chip-end));
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 20px 60px -48px rgba(4, 16, 77, 0.75);
+    }
+  </style>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      try {
+        const stored = localStorage.getItem('mdw-theme');
+        const preference = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const effective = preference === 'light' || preference === 'dark'
+          ? preference
+          : (prefersDark ? 'dark' : 'light');
+        root.dataset.theme = effective;
+        root.dataset.themePreference = preference;
+      } catch (error) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = prefersDark ? 'dark' : 'light';
+        root.dataset.themePreference = 'system';
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen villa-bg font-sans text-slate-100 antialiased relative overflow-x-hidden">
+  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
+    <div class="absolute left-10 top-[-8rem] h-80 w-80 rounded-full bg-accent/25 blur-[120px]"></div>
+    <div class="absolute bottom-[-12rem] right-[-4rem] h-[28rem] w-[28rem] rounded-full bg-glow/25 blur-[150px]"></div>
+  </div>
+  <div class="mx-auto mt-6 mb-6 w-full max-w-6xl px-6" data-transition-fade>
+    <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-sm font-medium text-slate-200 transition hover:border-accent/60 hover:text-white">
+      <span data-i18n="back">← 一覧に戻る</span>
+    </a>
+  </div>
+
+  <div class="mx-auto mt-0 mb-6 w-full max-w-6xl px-6" data-transition-fade>
+    <div class="hero-header-card flex w-full items-center gap-3 sm:gap-4">
+      <img src="icon.png" alt="RetreatScreen icon" class="h-12 w-12 shrink-0 rounded-2xl object-cover" loading="lazy" data-mdw-media>
+      <div class="flex flex-col leading-tight">
+        <h1 class="text-lg font-semibold text-white sm:text-xl" data-i18n="title">RetreatScreen</h1>
+        <span class="text-[12px] uppercase tracking-[0.3em] text-white/80" data-i18n="tag">macOS Launcher</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="relative mx-auto w-full max-w-6xl px-6 pb-16 pt-0" data-transition-fade>
+    <div class="section-card space-y-8">
+      <div class="relative overflow-hidden rounded-[32px] border border-white/10 shadow-[0_48px_120px_-60px_rgba(255,107,74,0.65)] glass-panel aspect-[16/10] lg:aspect-[16/9] xl:aspect-[16/8]" data-mdw-media>
+        <div class="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-accent/10"></div>
+        <img src="screenshot.png" alt="RetreatScreen preview" class="relative h-full w-full object-cover" loading="lazy">
+      </div>
+
+      <div class="space-y-6">
+        <p class="whitespace-pre-line text-base leading-relaxed text-slate-200" style="max-width:100%" data-i18n="lede">
+          ⌘⇧Spaceを押すだけで、iPhoneのホーム画面のようなグリッドランチャーがフルスクリーンで立ち上がります。
+          常駐するアクセサリアプリとして、集中を切らさず次のアプリやファイルにジャンプできます。
+        </p>
+        <div class="flex flex-wrap items-center gap-3 justify-end">
+          <a href="#" data-pressable="true" class="group inline-flex items-center gap-2 rounded-full glass-chip px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_48px_-24px_rgba(255,107,74,0.65)] transition hover:gap-3 hover:border-accent/70 hover:text-accent min-h-[52px]" aria-label="配信準備中">
+            <span class="text-base font-semibold" data-i18n="appStoreBottom">配信準備中</span>
+          </a>
+          <a href="#details" data-pressable="true" class="inline-flex items-center gap-2 rounded-full glass-chip px-5 py-3 text-sm font-medium text-white transition hover:border-accent/60 hover:text-accent min-h-[52px]" aria-label="特徴を詳しく見る">
+            <span data-i18n="secondaryCta">特徴を詳しく見る</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section id="details" class="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pb-16" data-transition-fade>
+    <div class="section-card space-y-6">
+      <div class="space-y-3">
+        <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="featureLabel">Key Features</p>
+        <h2 class="text-3xl font-semibold text-white" data-i18n="featureTitle">瞬発力のあるランチャー体験</h2>
+        <p class="max-w-3xl whitespace-pre-line text-base leading-relaxed text-white" data-i18n="featureBody">
+          RetreatScreenは常駐しつつ、呼んだときだけ全面オーバーレイで現れるランチャーです。
+          ホットキーで開き、Escまたは同じキーで瞬時に閉じるので、作業のリズムを崩しません。
+        </p>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-3" aria-label="Feature list">
+        <article class="group rounded-3xl glass-panel bg-gradient-to-br from-white/10 via-white/0 to-white/5 p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-accent"><span aria-hidden="true">⌘</span></div>
+            <h3 class="text-lg font-semibold text-white" data-i18n="f1Title">ホットキートグル</h3>
+          </div>
+          <p class="text-sm leading-relaxed text-white" data-i18n="f1Body">初期設定の⌘⇧Spaceで表示/非表示をトグル。フォーカスが外れたら自動で閉じ、デスクトップを占有しません。</p>
+        </article>
+        <article class="group rounded-3xl glass-panel bg-gradient-to-br from-white/10 via-white/0 to-white/5 p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-accent"><span aria-hidden="true">☰</span></div>
+            <h3 class="text-lg font-semibold text-white" data-i18n="f2Title">編集モードのグリッド</h3>
+          </div>
+          <p class="text-sm leading-relaxed text-white" data-i18n="f2Body">長押しまたは「編集」で編集モードへ。ドラッグで並べ替え、＋で追加、×や⌘⌫で削除—ホーム画面のように直感的です。</p>
+        </article>
+        <article class="group rounded-3xl glass-panel bg-gradient-to-br from-white/10 via-white/0 to-white/5 p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-accent"><span aria-hidden="true">∞</span></div>
+            <h3 class="text-lg font-semibold text-white" data-i18n="f3Title">自動保存と復元</h3>
+          </div>
+          <p class="text-sm leading-relaxed text-white" data-i18n="f3Body">ショートカットはコンテナ配下に自動保存され、再起動後もそのまま復元。サンドボックス/非サンドボックスどちらでも安心です。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pb-16" data-transition-fade>
+    <div class="section-card space-y-6">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="flowLabel">Flow</p>
+            <h2 class="text-3xl font-semibold text-white" data-i18n="flowTitle">起動から編集までの流れ</h2>
+          </div>
+        </div>
+      <div class="grid gap-4 md:grid-cols-3" aria-label="How it works">
+        <div class="rounded-3xl p-6 shadow-inner glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-accent font-semibold text-base">1</div>
+            <h3 class="text-lg font-semibold text-white" data-i18n="step1Title">⌘⇧Space で呼び出す</h3>
+          </div>
+          <p class="text-base leading-relaxed text-white" data-i18n="step1Body">全画面ブラーのオーバーレイとともにランチャーを展開。Escまたは同じショートカットで即クローズ。</p>
+        </div>
+        <div class="rounded-3xl p-6 shadow-inner glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-accent font-semibold text-base">2</div>
+            <h3 class="text-lg font-semibold text-white" data-i18n="step2Title">アプリ/ファイルを起動</h3>
+          </div>
+          <p class="text-base leading-relaxed text-white" data-i18n="step2Body">アイコンをクリックしてアプリ/ファイルを起動。コンテキストメニューからFinderで表示も可能です。</p>
+        </div>
+        <div class="rounded-3xl p-6 shadow-inner glass-panel space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-accent font-semibold text-base">3</div>
+            <h3 class="text-lg font-semibold text-white" data-i18n="step3Title">編集モードで整える</h3>
+          </div>
+          <p class="text-base leading-relaxed text-white" data-i18n="step3Body">編集モードでドラッグ並べ替え、＋で追加、×/⌘⌫で削除。すべて自動保存されます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pb-16" data-transition-fade>
+    <div class="section-card space-y-6">
+      <div class="flex flex-col gap-3">
+        <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="specLabel">Tech Specs</p>
+        <h2 class="text-3xl font-semibold text-white" data-i18n="specTitle">動作環境と安心設計</h2>
+        <p class="max-w-3xl text-sm leading-relaxed text-white" data-i18n="specBody">最新のmacOS体験に合わせた軽さと安心設計。呼び出す瞬間だけ姿を現し、データはMacの中だけにとどまります。</p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        <dl class="rounded-3xl p-6 text-sm leading-relaxed text-slate-100 glass-panel">
+          <div class="flex items-baseline justify-between border-b border-white/10 pb-3">
+            <dt class="text-white" data-i18n="specOSLabel">対応OS</dt>
+            <dd class="font-semibold text-white" data-i18n="specOS">macOS Tahoe 以降</dd>
+          </div>
+          <div class="flex items-baseline justify-between border-b border-white/10 py-3">
+            <dt class="text-white" data-i18n="specChipLabel">対応チップ</dt>
+            <dd class="font-semibold text-white" data-i18n="specChip">Appleシリコン / Intel</dd>
+          </div>
+          <div class="flex items-baseline justify-between border-b border-white/10 py-3">
+            <dt class="text-white" data-i18n="specHotkeyLabel">ホットキー</dt>
+            <dd class="font-semibold text-white" data-i18n="specHotkey">⌘⇧Space（設定で変更可）</dd>
+          </div>
+          <div class="flex items-baseline justify-between pt-3">
+            <dt class="text-white" data-i18n="specFocusLabel">集中モード連携</dt>
+            <dd class="font-semibold text-white" data-i18n="specFocus">近日対応予定</dd>
+          </div>
+        </dl>
+        <div class="rounded-3xl glass-panel bg-gradient-to-br from-white/12 via-transparent to-accent/10 p-6">
+          <h3 class="text-lg font-semibold text-white" data-i18n="careTitle">安心して使えるポイント</h3>
+          <p class="mt-3 whitespace-pre-line text-sm leading-relaxed text-slate-100" data-i18n="careBody">・起動中も作業を妨げない全画面オーバーレイ。
+・ショートカットや配置はMac内にのみ保存し、外部へ出ません。
+・初回起動もシンプルなガイドで迷わずセットアップ。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pb-16" data-transition-fade>
+    <div class="section-card">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="ctaLabel">Get Ready</p>
+          <h2 class="text-2xl font-semibold text-white" data-i18n="ctaTitle">デスクトップをホーム画面のように</h2>
+          <p class="mt-3 max-w-2xl whitespace-pre-line text-sm leading-relaxed text-white" data-i18n="ctaBody">
+            RetreatScreenは、散らかったデスクトップを整えて次の作業へ跳ぶためのジャンプ台です。
+            App Store 配信に向けたUIと権限フローをすでに整備しています。
+          </p>
+        </div>
+        <div class="flex flex-col items-start gap-3 md:items-end"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="px-6 pb-12">
+    <div class="mx-auto flex max-w-6xl justify-end">
+      <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
+    </div>
+  </footer>
+
+  <script src="../../theme.js"></script>
+  <script src="../../footer.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'mdw-lang';
+      const translations = {
+        en: {
+          back: '← Back to List',
+          statusLabel: 'App Store Ready',
+          version: 'v1.0',
+          tag: 'macOS Launcher',
+          title: 'RetreatScreen',
+          lede: 'Press ⌘⇧Space to summon a full-screen, iOS-style launcher without breaking your flow. It lives as an accessory app and jumps you to apps or files instantly.',
+          badge1: 'One-keystroke summon',
+          badge2: 'Edit & reorder with drag',
+          badge3: 'Persistent container storage',
+          appStoreTop: 'Preparing for release',
+          appStoreBottom: 'Coming soon',
+          secondaryCta: 'See feature details',
+          reqLabel: 'Requires',
+          reqValue: 'macOS Tahoe',
+          inputLabel: 'Shortcut',
+          inputValue: '⌘⇧Space (customizable)',
+          persistenceLabel: 'Persistence',
+          persistenceValue: 'Autosaved in container',
+          featureLabel: 'Key Features',
+          featureTitle: 'A launcher with zero friction',
+          featureBody: 'RetreatScreen stays resident as an accessory app and appears only when you call it. Open with your shortcut, dismiss with Esc or the same key—keep focus on your work.',
+          f1Title: 'Hotkey toggle',
+          f1Body: 'Show or hide the overlay with ⌘⇧Space. It auto-dismisses when focus leaves, so your desktop stays clean.',
+          f2Title: 'Editable grid',
+          f2Body: 'Long-press or tap “Edit” to enter edit mode. Drag to reorder, add with the + button, and remove with × or ⌘⌫.',
+          f3Title: 'Autosave & restore',
+          f3Body: 'Shortcuts are persisted under Application Support and restored on launch, sandboxed or not.',
+          flowLabel: 'Flow',
+          flowTitle: 'From summon to edit',
+          flowCta: 'Open tutorial (dummy)',
+          step1Title: 'Summon with ⌘⇧Space',
+          step1Body: 'A blurred full-screen overlay appears. Close with Esc or the same shortcut.',
+          step2Title: 'Launch apps/files',
+          step2Body: 'Click icons to open targets. Use the context menu to reveal in Finder.',
+          step3Title: 'Tidy in Edit Mode',
+          step3Body: 'Drag to reorder, add with +, remove with ×/⌘⌫. Changes persist immediately.',
+          specLabel: 'Tech Specs',
+          specTitle: 'Environment & build',
+          specTitle: 'Compatibility & care',
+          specBody: 'Made to feel effortless on the latest macOS. It appears only when you need it and keeps your data on your Mac.',
+          specOSLabel: 'OS',
+          specOS: 'macOS Tahoe or later',
+          specChipLabel: 'Chip',
+          specChip: 'Apple silicon / Intel',
+          specHotkeyLabel: 'Hotkey',
+          specHotkey: '⌘⇧Space (customizable)',
+          specFocusLabel: 'Focus mode',
+          specFocus: 'Planned in a future update',
+          careTitle: 'Feel-good details',
+          careBody: '• Full-screen overlay that stays out of the way when you’re working.\n• Shortcuts and layouts live only on your Mac—no cloud syncing.\n• A simple first-run guide so you’re ready in moments.',
+          ctaLabel: 'Get Ready',
+          ctaTitle: 'Turn your desktop into a home screen',
+          ctaBody: 'RetreatScreen is a jump pad that resets window chaos and gets you moving again. UI and permission flows are prepared for App Store distribution.',
+          ctaPrimary: 'Preparing for release',
+          ctaSecondary: 'Back to features'
+        }
+      };
+      const fallbackCopy = {};
+      let currentLocale = resolveLocale(readStoredLanguage() || 'ja');
+
+      function recordFallbacks() {
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key || Object.prototype.hasOwnProperty.call(fallbackCopy, key)) {
+            return;
+          }
+          fallbackCopy[key] = el.textContent.replace(/\s+$/u, '');
+        });
+      }
+
+      function resolveLocale(locale) {
+        return Object.prototype.hasOwnProperty.call(translations, locale) ? locale : 'ja';
+      }
+
+      function syncLanguageSelects(lang) {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          if (select.value !== lang) {
+            select.value = lang;
+          }
+        });
+      }
+
+      function readStoredLanguage() {
+        try {
+          return localStorage.getItem(STORAGE_KEY);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function applyLanguage(locale) {
+        recordFallbacks();
+        const lang = resolveLocale(locale);
+        currentLocale = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key) {
+            return;
+          }
+          if (lang === 'ja') {
+            const fallback = fallbackCopy[key];
+            if (typeof fallback === 'string') {
+              el.textContent = fallback;
+            }
+            return;
+          }
+          const text = translations[lang][key];
+          if (typeof text === 'string') {
+            el.textContent = text;
+          } else {
+            const fallback = fallbackCopy[key];
+            if (typeof fallback === 'string') {
+              el.textContent = fallback;
+            }
+          }
+        });
+        syncLanguageSelects(lang);
+        try {
+          localStorage.setItem(STORAGE_KEY, lang);
+        } catch (error) {
+          /* ignore */
+        }
+        return lang;
+      }
+
+      const controller = window.MDWLanguageTransition
+        ? window.MDWLanguageTransition.create((lang) => applyLanguage(lang), { duration: 280 })
+        : null;
+
+      function setupLanguageSelector() {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          if (select.dataset.bound === 'true') {
+            select.value = currentLocale;
+            return;
+          }
+          select.dataset.bound = 'true';
+          select.addEventListener('change', (event) => {
+            if (controller) {
+              controller.apply(event.target.value, { animate: true });
+            } else {
+              applyLanguage(event.target.value);
+            }
+          });
+          select.value = currentLocale;
+        });
+      }
+
+      setupLanguageSelector();
+      applyLanguage(currentLocale);
+
+      // Footerは非同期読み込みのため、読み込み完了後に再バインド/再適用する
+      window.addEventListener('mdw:footer-loaded', () => {
+        setupLanguageSelector();
+        applyLanguage(currentLocale);
+      });
+    })();
+  </script>
+</body>
+</html>

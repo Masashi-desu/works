@@ -1,5 +1,22 @@
 [
   {
+    "dir": "RetreatScreen/",
+    "title": "RetreatScreen",
+    "title_ja": "RetreatScreen",
+    "title_en": "RetreatScreen",
+    "desc": "Full-screen iOS-style launcher for macOS.",
+    "desc_ja": "⌘⇧Spaceで呼び出すiPhone風フルスクリーンランチャー。",
+    "desc_en": "Full-screen iOS-style launcher for macOS.",
+    "image": "icon.png",
+    "header": "screenshot.png",
+    "date": "2025-11-29",
+    "url": "",
+    "categories": [
+      "MacApp",
+      "Launcher"
+    ]
+  },
+  {
     "dir": "WinKinesis/",
     "title": "WinKinesis",
     "title_ja": "WinKinesis",

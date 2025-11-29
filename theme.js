@@ -5,10 +5,10 @@
   const root = document.documentElement;
   const media = window.matchMedia('(prefers-color-scheme: dark)');
   const reduceMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const TRANSITION_DURATION = 750;
+  const TRANSITION_DURATION = 900;
   const PAGE_TRANSITION_DURATION = 600;
   // Overlay stays semi-transparent to avoid full-screen flash during theme fade.
-  const THEME_OVERLAY_OPACITY = 0.4;
+  const THEME_OVERLAY_OPACITY = 1;
   const TRANSITION_PENDING_KEY = 'mdw-transition-pending';
   const WINDOW_TRANSITION_KEY = 'mdwTransitionPending';
   const BODY_FADE_CLASS = 'page-transition-fade';
@@ -132,7 +132,7 @@
     target.style.backgroundAttachment = computed.backgroundAttachment || '';
     // Force reflow before enabling the fade animation
     void target.offsetWidth;
-    target.style.transition = `opacity ${TRANSITION_DURATION}ms linear`;
+    target.style.transition = `opacity ${TRANSITION_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)`;
     return target;
   }
 

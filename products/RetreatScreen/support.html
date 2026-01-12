@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetreatScreen サポート | Masahi Desu Works</title>
+  <meta name="description" content="RetreatScreen のサポート方針と連絡先。個人開発者が対応可能な範囲で、App Store 配信アプリとしてのサポート手順をまとめています。">
+  <link rel="canonical" href="https://masashi-desu.github.io/works/products/RetreatScreen/support.html">
+  <meta property="og:site_name" content="Masahi Desu Works">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RetreatScreen サポート">
+  <meta property="og:description" content="個人開発者による App Store 向けサポートの範囲と連絡先。">
+  <meta property="og:url" content="https://masashi-desu.github.io/works/products/RetreatScreen/support.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RetreatScreen サポート">
+  <meta name="twitter:description" content="個人開発者による App Store 向けサポートの範囲と連絡先。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Outfit"', 'system-ui', 'sans-serif'] },
+          colors: {
+            ink: '#0a102c',
+            accent: '#ff6b4a',
+            glow: '#0f1628'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../theme.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    .bg-retreat {
+      background: radial-gradient(circle at 18% 16%, rgba(255, 142, 102, 0.14), transparent 38%),
+                  radial-gradient(circle at 82% 22%, rgba(55, 87, 217, 0.16), transparent 34%),
+                  radial-gradient(circle at 52% 86%, rgba(255, 199, 142, 0.1), transparent 42%),
+                  linear-gradient(135deg, #0e1534, #0b1027 45%, #050b1c);
+    }
+    :root[data-theme="light"] .bg-retreat {
+      background: linear-gradient(150deg, #ffffff 0%, #eef1f8 52%, #fae6da 100%);
+    }
+    .glass-card {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 32px 120px -60px rgba(0, 0, 0, 0.65);
+    }
+    :root[data-theme="light"] .glass-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.7));
+      border-color: rgba(224, 229, 238, 0.7);
+      box-shadow: 0 28px 80px -50px rgba(241, 190, 132, 0.35);
+    }
+    .section-heading { letter-spacing: 0.32em; }
+  </style>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      try {
+        const stored = localStorage.getItem('mdw-theme');
+        const preference = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const effective = preference === 'light' || preference === 'dark' ? preference : (prefersDark ? 'dark' : 'light');
+        root.dataset.theme = effective;
+        root.dataset.themePreference = preference;
+      } catch (error) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = prefersDark ? 'dark' : 'light';
+        root.dataset.themePreference = 'system';
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen bg-retreat text-slate-100 antialiased">
+  <div class="mx-auto w-full max-w-5xl px-6 pt-8 pb-16 space-y-8">
+    <a href="./index.html" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-slate-100 transition hover:border-accent/60 hover:text-white" data-transition-direction="left" data-i18n="back">
+      ← 製品ページに戻る
+    </a>
+
+    <header class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6">
+      <p class="text-xs uppercase tracking-[0.32em] text-slate-200 section-heading" data-i18n="label">Support</p>
+      <div class="mt-2 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+        <h1 class="text-2xl font-semibold text-white" data-i18n="title">RetreatScreen サポートポリシー</h1>
+        <span class="text-xs text-slate-300" data-i18n="updated">最終更新: 2026-01-12</span>
+      </div>
+      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-200" data-i18n="intro">
+        個人開発者として現実的に対応できる範囲を明示し、App Store での一般的なサポート体験を損なわないことを目指します。
+      </p>
+    </header>
+
+    <main class="space-y-6">
+      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">1</div>
+          <h2 class="text-lg font-semibold text-white" data-i18n="s1Title">サポート範囲</h2>
+        </div>
+        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+          <li data-i18n="s1Item1">最新および直近のメジャー macOS に対応します。</li>
+          <li data-i18n="s1Item2">基本的な使い方、動作不良、クラッシュに関する問い合わせを受け付けます。</li>
+        </ul>
+        <p class="text-xs text-slate-300" data-i18n="s1Notice">
+          サポート範囲や本ページの内容は、開発者の都合により予告なく変更する場合があります。
+        </p>
+      </section>
+
+      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">2</div>
+          <h2 class="text-lg font-semibold text-white" data-i18n="s2Title">対応時間と目安</h2>
+        </div>
+        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s2Lead">
+          いただいたメールにはできるだけ早く順次返信します。個人開発のため即時の電話対応や 24 時間サポートは行っていません。
+        </p>
+        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+          <li data-i18n="s2Item1">アップデート提供は App Store の審査期間を含め、数週間かかる場合があります。</li>
+          <li data-i18n="s2Item2">再現手順とスクリーンショットを共有いただけると解決が早まります。</li>
+        </ul>
+      </section>
+
+      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">3</div>
+          <h2 class="text-lg font-semibold text-white" data-i18n="s3Title">お問い合わせ前のチェック</h2>
+        </div>
+        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+          <li data-i18n="s3Item1">最新バージョンへのアップデート後も問題が再現するか</li>
+          <li data-i18n="s3Item2">macOS のセキュリティとプライバシー設定で必要な権限が付与されているか</li>
+          <li data-i18n="s3Item3">ショートカットやアイコン設定を変更した直後の場合はアプリ再起動で改善しないか</li>
+        </ul>
+      </section>
+
+      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">4</div>
+          <h2 class="text-lg font-semibold text-white" data-i18n="s4Title">連絡先</h2>
+        </div>
+        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s4Lead">
+          サポートはメールで受け付けています。RetreatScreen サポートポリシーをご確認の上、お問い合わせに必要な情報を添えてお送りください。
+        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="mailto:masashi.desu.dev@icloud.com" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_48px_-24px_rgba(255,107,74,0.65)] transition hover:border-accent/70 hover:text-accent hover:bg-white/15" data-i18n="s4Email">
+            masashi.desu.dev@icloud.com
+          </a>
+          <span class="text-xs text-slate-300" data-i18n="s4Note">メールのみの受付となります。</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="px-6 pb-12">
+    <div class="mx-auto flex max-w-5xl justify-end">
+      <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
+    </div>
+  </footer>
+
+  <script src="../../theme.js"></script>
+  <script src="../../footer.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'mdw-lang';
+      const translations = {
+        en: {
+          back: '← Back to product page',
+          label: 'Support',
+          title: 'RetreatScreen Support Policy',
+          updated: 'Last updated: 2026-01-12',
+          intro: 'As a solo developer I aim to provide a clear, realistic support experience while aligning with common App Store expectations.',
+          s1Title: 'Scope of support',
+          s1Item1: 'Support covers current and previous major macOS versions.',
+          s1Item2: 'We accept questions about basic usage, malfunctions, and crashes.',
+          s1Notice: 'Scope and policy details may change without notice at the developer’s discretion.',
+          s2Title: 'Response window',
+          s2Lead: 'We reply to emails as promptly as possible, in the order received. Phone or 24/7 support is not available.',
+          s2Item1: 'Updates may take several weeks including App Store review time.',
+          s2Item2: 'Sharing repro steps and a screenshot helps speed resolution.',
+          s3Title: 'Before you contact',
+          s3Item1: 'Check if the issue persists on the latest version.',
+          s3Item2: 'Confirm required permissions are granted in macOS Security & Privacy.',
+          s3Item3: 'After changing shortcuts or icons, try restarting the app.',
+          s4Title: 'Contact',
+          s4Lead: 'Support is email-only. Please review the RetreatScreen Support Policy and include the necessary details when you contact us.',
+          s4Email: 'masashi.desu.dev@icloud.com',
+          s4Note: 'Email only.'
+        }
+      };
+
+      const fallbackCopy = {};
+      let currentLocale = resolveLocale(readStoredLanguage() || 'ja');
+
+      function resolveLocale(locale) {
+        return Object.prototype.hasOwnProperty.call(translations, locale) ? locale : 'ja';
+      }
+
+      function readStoredLanguage() {
+        try {
+          return localStorage.getItem(STORAGE_KEY);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function syncLanguageSelects(lang) {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          select.value = lang;
+        });
+      }
+
+      function recordFallbacks() {
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key || Object.prototype.hasOwnProperty.call(fallbackCopy, key)) {
+            return;
+          }
+          fallbackCopy[key] = el.textContent.trim();
+        });
+      }
+
+      function applyLanguage(locale) {
+        recordFallbacks();
+        const lang = resolveLocale(locale);
+        currentLocale = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key) return;
+          if (lang === 'ja') {
+            const fallback = fallbackCopy[key];
+            if (typeof fallback === 'string') el.textContent = fallback;
+            return;
+          }
+          const text = translations[lang][key];
+          if (typeof text === 'string') {
+            el.textContent = text;
+          } else if (typeof fallbackCopy[key] === 'string') {
+            el.textContent = fallbackCopy[key];
+          }
+        });
+        syncLanguageSelects(lang);
+        try {
+          localStorage.setItem(STORAGE_KEY, lang);
+        } catch (error) { /* ignore */ }
+        return lang;
+      }
+
+      const controller = window.MDWLanguageTransition
+        ? window.MDWLanguageTransition.create((lang) => applyLanguage(lang), { duration: 280 })
+        : null;
+
+      function setupLanguageSelector() {
+        document.querySelectorAll('.lang-select').forEach((select) => {
+          if (select.dataset.bound === 'true') {
+            select.value = currentLocale;
+            return;
+          }
+          select.dataset.bound = 'true';
+          select.addEventListener('change', (event) => {
+            if (controller) {
+              controller.apply(event.target.value, { animate: true });
+            } else {
+              applyLanguage(event.target.value);
+            }
+          });
+          select.value = currentLocale;
+        });
+      }
+
+      setupLanguageSelector();
+      applyLanguage(currentLocale);
+
+      window.addEventListener('mdw:footer-loaded', () => {
+        setupLanguageSelector();
+        applyLanguage(currentLocale);
+      });
+    })();
+  </script>
+</body>
+</html>

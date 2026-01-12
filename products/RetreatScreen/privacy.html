@@ -119,11 +119,11 @@
           <h2 class="text-lg font-semibold text-white" data-i18n="s2Title">通信が発生するケース</h2>
         </div>
         <p class="text-sm leading-relaxed text-slate-200" data-i18n="s2Lead">
-          インターネット通信は「URLアイコンを追加する際に必要な情報（サイト名・ファビコンなど）を取得するとき」のみに限定されます。
+          URLショートカットを追加する際のみ、指定したURLのホストに対して必要な情報（サイト名・ファビコンなど）を取得する通信（HTTP/HTTPS）を行います。サーバーからリダイレクトが指示された場合は転送先ドメインにも接続されることがありますが、それ以外の目的の通信は行いません。
         </p>
         <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
           <li data-i18n="s2Item1">取得したメタデータは端末内に保存され、外部送信や解析には利用しません。</li>
-          <li data-i18n="s2Item2">通信先は指定URLのホストまたは一般的なアイコン取得用の公開CDNに限られます。</li>
+          <li data-i18n="s2Item2">リダイレクトが発生した場合を除き、通信先は指定URLのホストのみに限定されます。</li>
           <li data-i18n="s2Item3">バックグラウンドでの継続的なトラッキングや広告用途の通信は行いません。</li>
         </ul>
       </section>
@@ -134,8 +134,8 @@
           <h2 class="text-lg font-semibold text-white" data-i18n="s3Title">データの保存場所</h2>
         </div>
         <p class="text-sm leading-relaxed text-slate-200" data-i18n="s3Body">
-          追加したショートカットの並びやカスタムアイコンは、macOS のアプリケーションコンテナ領域にのみ保存されます。
-          Time Machine などのバックアップ対象には含まれますが、クラウドへの自動アップロードは行いません。
+          追加したショートカットの並びやカスタムアイコンは、macOS のアプリケーションコンテナ領域に保存されます。本アプリがこれらのデータを外部に送信することはありません。
+          なお、Time Machine や iCloud などの macOS 標準のバックアップ機能をユーザーが有効にしている場合、OS の仕組みによりバックアップ対象となることがあります。
         </p>
       </section>
 
@@ -189,12 +189,12 @@
           s1Item3: 'Cloud upload or sync of shortcut layouts or icons',
           s1Note: 'These remain on your Mac; nothing is sent to our servers or third parties.',
           s2Title: 'When network access occurs',
-          s2Lead: 'Internet access is limited to fetching needed information (site title, favicon, etc.) when you add a URL icon.',
+          s2Lead: 'Network access occurs only when adding a URL shortcut to fetch necessary info (title, favicon, etc.) from the specified host over HTTP/HTTPS. If the server issues a redirect, the app may connect to the redirected domain, but no other network calls are made.',
           s2Item1: 'Retrieved metadata stays on the device and is not sent or analyzed elsewhere.',
-          s2Item2: 'Requests go only to the target site host or common public icon CDNs.',
+          s2Item2: 'Except for redirect follow-ups, requests are limited to the specified URL host.',
           s2Item3: 'No background tracking or advertising traffic is performed.',
           s3Title: 'Where data is stored',
-          s3Body: 'Your shortcuts and custom icons are stored only in the macOS app container. They may be included in backups such as Time Machine, but are not uploaded automatically to any cloud.',
+          s3Body: 'Your shortcuts and custom icons are stored in the macOS app container, and the app never transmits them externally. If you enable macOS backup features like Time Machine or iCloud, the OS may include these items in its backups.',
           s4Title: 'Policy updates',
           s4Body: 'This policy may change without notice alongside app updates. The latest content is provided on this page with the update date noted.',
           s5Title: 'Change log',

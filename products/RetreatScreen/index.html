@@ -103,6 +103,8 @@
       --bg-g1: rgba(255, 142, 102, 0.16);
       --bg-g2: rgba(55, 87, 217, 0.18);
       --bg-g3: rgba(255, 199, 142, 0.12);
+      --bg-spot-accent: rgba(255, 107, 74, 0.25);
+      --bg-spot-glow: rgba(15, 22, 40, 0.25);
       --glass-panel-start: rgba(255, 255, 255, 0.15);
       --glass-panel-end: rgba(255, 255, 255, 0.07);
       --glass-chip-start: rgba(255, 255, 255, 0.2);
@@ -118,6 +120,8 @@
       --bg-g1: rgba(255, 198, 140, 0.35);
       --bg-g2: rgba(255, 122, 110, 0.25);
       --bg-g3: rgba(120, 88, 180, 0.18);
+      --bg-spot-accent: rgba(255, 122, 110, 0.22);
+      --bg-spot-glow: rgba(123, 63, 116, 0.18);
       --glass-panel-start: rgba(255, 255, 255, 0.28);
       --glass-panel-end: rgba(255, 255, 255, 0.16);
       --glass-chip-start: rgba(255, 255, 255, 0.32);
@@ -133,6 +137,8 @@
       --bg-g1: rgba(255, 124, 92, 0.18);
       --bg-g2: rgba(52, 82, 193, 0.2);
       --bg-g3: rgba(255, 182, 141, 0.12);
+      --bg-spot-accent: rgba(255, 107, 74, 0.28);
+      --bg-spot-glow: rgba(15, 22, 40, 0.28);
       --glass-panel-start: rgba(255, 255, 255, 0.18);
       --glass-panel-end: rgba(255, 255, 255, 0.08);
       --glass-chip-start: rgba(255, 255, 255, 0.22);
@@ -143,7 +149,9 @@
       --text-on-bg: #ffffff;
     }
     .villa-bg {
-      background: radial-gradient(circle at 15% 18%, var(--bg-g1), transparent 38%),
+      background: radial-gradient(circle at 18% -10%, var(--bg-spot-accent), transparent 45%),
+                  radial-gradient(circle at 110% 90%, var(--bg-spot-glow), transparent 55%),
+                  radial-gradient(circle at 15% 18%, var(--bg-g1), transparent 38%),
                   radial-gradient(circle at 82% 20%, var(--bg-g2), transparent 34%),
                   radial-gradient(circle at 50% 82%, var(--bg-g3), transparent 46%),
                   linear-gradient(135deg, var(--bg-from), var(--bg-via), var(--bg-to));
@@ -219,12 +227,8 @@
     })();
   </script>
 </head>
-<body class="min-h-screen villa-bg font-sans text-slate-100 antialiased relative overflow-x-hidden">
-  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
-    <div class="absolute left-10 top-[-8rem] h-80 w-80 rounded-full bg-accent/25 blur-[120px]"></div>
-    <div class="absolute bottom-[-12rem] right-[-4rem] h-[28rem] w-[28rem] rounded-full bg-glow/25 blur-[150px]"></div>
-  </div>
-  <div class="mx-auto mt-6 mb-6 w-full max-w-6xl px-6" data-transition-fade>
+<body class="min-h-screen villa-bg font-sans text-slate-100 antialiased relative">
+  <div class="mx-auto mb-6 w-full max-w-6xl px-6 pt-6" data-transition-fade>
     <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-sm font-medium text-slate-200 transition hover:border-accent/60 hover:text-white">
       <span data-i18n="back">← 一覧に戻る</span>
     </a>

@@ -209,6 +209,10 @@ body.page-transition-visible .page-transition-target {
   background-color: #f6f7fb;
 }
 
+:root[data-theme="light"] .bg-ink\/60 {
+  background-color: rgba(248, 250, 252, 0.85);
+}
+
 :root[data-theme="light"] .text-white,
 :root[data-theme="light"] .text-slate-100 {
   color: #1f2937;
@@ -228,6 +232,10 @@ body.page-transition-visible .page-transition-target {
 
 :root[data-theme="light"] .text-slate-500 {
   color: #7b879d;
+}
+
+:root[data-theme="light"] .text-white\/70 {
+  color: #5f6c7e;
 }
 
 :root[data-theme="light"] .bg-white\/5 {

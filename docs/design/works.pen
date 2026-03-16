@@ -1,0 +1,157 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "/works",
+      "width": 1600,
+      "fill": "#F8FAFC",
+      "cornerRadius": 24,
+      "layout": "vertical",
+      "gap": 40,
+      "padding": 48,
+      "children": [
+        {
+          "type": "frame",
+          "id": "e9doi",
+          "name": "index.html",
+          "width": "fill_container",
+          "height": 900,
+          "fill": "#FFFFFF",
+          "cornerRadius": 16
+        },
+        {
+          "type": "frame",
+          "id": "1mwSP",
+          "name": "/products",
+          "width": "fill_container",
+          "fill": "#E5E7EB80",
+          "cornerRadius": 20,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "nITCQ",
+              "name": "index.html",
+              "width": "fill_container",
+              "height": 900,
+              "fill": "#FFFFFF",
+              "cornerRadius": 16
+            },
+            {
+              "type": "frame",
+              "id": "orVZq",
+              "name": "/products/RetreatScreen",
+              "width": "fill_container",
+              "fill": "#E5E7EB80",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 24,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SrAzT",
+                  "name": "index.html",
+                  "width": "fill_container",
+                  "height": 900,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "LChlp",
+                  "name": "privacy.html",
+                  "width": "fill_container",
+                  "height": 900,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "xe1Iy",
+                  "name": "support.html",
+                  "width": "fill_container",
+                  "height": 900,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "2xUWg",
+              "name": "/products/WinKinesis",
+              "width": "fill_container",
+              "fill": "#E5E7EB80",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 24,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "2fPcr",
+                  "name": "index.html",
+                  "width": "fill_container",
+                  "height": 900,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cyf4k",
+              "name": "/products/TypeFetch",
+              "width": "fill_container",
+              "fill": "#E5E7EB80",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 24,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "eqCpb",
+                  "name": "index.html",
+                  "width": "fill_container",
+                  "height": 900,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "gIwzj",
+              "name": "/products/Surround1x0-AKDK",
+              "width": "fill_container",
+              "fill": "#E5E7EB80",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 24,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jH3dq",
+                  "name": "index.html",
+                  "width": "fill_container",
+                  "height": 900,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

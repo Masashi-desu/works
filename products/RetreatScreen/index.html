@@ -649,11 +649,21 @@
   <footer class="retreat-footer">
     <div class="page-container retreat-footer__inner">
       <div class="document-footer-links">
-        <a href="./privacy.html" class="glass-chip retreat-secondary-link" aria-label="プライバシーポリシー">
-          プライバシーポリシー
+        <a
+          href="./privacy.html"
+          class="glass-chip retreat-secondary-link"
+          aria-label="プライバシーポリシー"
+          data-i18n-aria-label="privacyPolicyLink"
+        >
+          <span data-i18n="privacyPolicyLink">プライバシーポリシー</span>
         </a>
-        <a href="./support.html" class="glass-chip retreat-secondary-link" aria-label="サポート">
-          サポート
+        <a
+          href="./support.html"
+          class="glass-chip retreat-secondary-link"
+          aria-label="サポート"
+          data-i18n-aria-label="supportLink"
+        >
+          <span data-i18n="supportLink">サポート</span>
         </a>
       </div>
       <div style="display:flex; justify-content:flex-end;">
@@ -723,7 +733,9 @@
           ctaTitle: 'Turn your desktop into a home screen',
           ctaBody: 'RetreatScreen is a jump pad that resets window chaos and gets you moving again.',
           ctaPrimary: 'Preparing for release',
-          ctaSecondary: 'Back to features'
+          ctaSecondary: 'Back to features',
+          privacyPolicyLink: 'Privacy Policy',
+          supportLink: 'Support'
         }
       };
       const fallbackCopy = {};
@@ -759,6 +771,14 @@
         }
       }
 
+      function resolveLocalizedCopy(lang, key) {
+        if (lang === 'ja') {
+          return fallbackCopy[key];
+        }
+        const localizedCopy = translations[lang][key];
+        return typeof localizedCopy === 'string' ? localizedCopy : fallbackCopy[key];
+      }
+
       function applyLanguage(locale) {
         recordFallbacks();
         const lang = resolveLocale(locale);
@@ -769,21 +789,19 @@
           if (!key) {
             return;
           }
-          if (lang === 'ja') {
-            const fallback = fallbackCopy[key];
-            if (typeof fallback === 'string') {
-              el.textContent = fallback;
-            }
-            return;
-          }
-          const text = translations[lang][key];
+          const text = resolveLocalizedCopy(lang, key);
           if (typeof text === 'string') {
             el.textContent = text;
-          } else {
-            const fallback = fallbackCopy[key];
-            if (typeof fallback === 'string') {
-              el.textContent = fallback;
-            }
+          }
+        });
+        document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-aria-label');
+          if (!key) {
+            return;
+          }
+          const ariaLabel = resolveLocalizedCopy(lang, key);
+          if (typeof ariaLabel === 'string') {
+            el.setAttribute('aria-label', ariaLabel);
           }
         });
         syncLanguageSelects(lang);

@@ -68,23 +68,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Outfit"', 'system-ui', 'sans-serif']
-          },
-          colors: {
-            ink: '#0f172a',
-            accent: '#38f9d7',
-            glow: '#6366f1'
-          }
-        }
-      }
-    };
-  </script>
   <link rel="stylesheet" href="theme.css">
   <script>
     (function () {
@@ -106,73 +89,52 @@
     })();
   </script>
 </head>
-<body class="min-h-screen bg-ink text-slate-100 font-sans antialiased relative overflow-x-hidden">
-  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
-    <div class="absolute -top-40 right-0 h-80 w-80 rounded-full bg-glow/40 blur-3xl"></div>
-    <div class="absolute top-40 left-10 h-[min(24rem,80vw)] w-[min(24rem,80vw)] rounded-full bg-accent/30 blur-3xl"></div>
+<body class="page-shell page-home">
+  <div class="page-background" data-transition-ignore>
+    <div class="page-orb page-orb--home-glow"></div>
+    <div class="page-orb page-orb--home-accent"></div>
   </div>
-  <header class="relative" data-transition-ignore>
-    <div class="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 md:flex-row md:flex-wrap md:items-start md:justify-between md:gap-10 lg:flex-nowrap">
-      <div class="w-full md:order-1 md:flex-[1_1_36rem] md:min-w-[32rem]" data-transition-fade>
-        <p class="text-xs uppercase tracking-[0.4em] text-slate-400" data-i18n="tagline">Masahi_desu Studio</p>
-        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl" data-i18n="heroTitle">Masahi_desu Works</h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300" data-i18n="heroBody">
+  <header class="home-hero" data-transition-ignore>
+    <div class="page-container home-hero__layout">
+      <div class="home-hero__intro" data-transition-fade>
+        <p class="home-hero__eyebrow" data-i18n="tagline">Masahi_desu Studio</p>
+        <h1 class="home-hero__title" data-i18n="heroTitle">Masahi_desu Works</h1>
+        <p class="home-hero__description" data-i18n="heroBody">
           アイデアを用途のあるプロダクトへ磨き上げ、macOS向けツールやハードウェアプロトタイプを中心に、日々の仕事や創作をしなやかにする体験をデザインしています。
         </p>
-        <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a href="products/index.html" data-transition-direction="right" class="group inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-ink transition hover:bg-white">
+        <div class="home-hero__actions">
+          <a href="products/index.html" data-transition-direction="right" class="button button--primary">
             <span data-i18n="heroPrimaryCta">プロダクトを見る</span>
-            <span class="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+            <span class="button__arrow" aria-hidden="true">→</span>
           </a>
-          <span class="inline-flex items-center justify-center rounded-full border border-slate-500/60 px-6 py-3 text-sm font-medium text-slate-400 opacity-60 cursor-not-allowed select-none" aria-disabled="true" data-i18n="heroSecondaryCta">コンタクト(準備中)</span>
+          <span class="button button--subtle button--disabled" aria-disabled="true" data-i18n="heroSecondaryCta">コンタクト(準備中)</span>
         </div>
       </div>
-      <div class="philosophy-card relative w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur min-w-0 sm:min-w-[28rem] md:order-3 md:flex-[1_1_28rem]" data-transition-fade>
+      <div class="home-philosophy-card page-surface" data-transition-fade>
         <!-- スタジオのフィロソフィー -->
-        <p class="text-xs font-medium uppercase tracking-[0.3em] text-slate-400" data-i18n="cardLabel">Philosophy</p>
-        <h2 class="mt-4 text-2xl font-semibold text-white" data-i18n="cardTitle">より簡単により美しく</h2>
-        <p class="mt-4 text-sm leading-relaxed text-slate-300" data-i18n="cardBody">
+        <p class="home-philosophy-card__label" data-i18n="cardLabel">Philosophy</p>
+        <h2 class="home-philosophy-card__title" data-i18n="cardTitle">より簡単により美しく</h2>
+        <p class="home-philosophy-card__copy" data-i18n="cardBody">
           新しいインタラクションと美しい情報設計を探求しながら、楽しく日々の生活を豊かに美しくするプロダクトを作成することを目標にしています。
         </p>
-        <div class="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-200">
-          <div class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-            <p class="text-xs uppercase tracking-widest text-slate-400">Focus</p>
-            <p class="mt-1 font-semibold text-white" data-i18n="focusOne">macOS Apps</p>
+        <div class="home-focus-grid">
+          <div class="home-focus-item">
+            <p class="home-focus-item__label">Focus</p>
+            <p class="home-focus-item__value" data-i18n="focusOne">macOS Apps</p>
           </div>
-          <div class="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-            <p class="text-xs uppercase tracking-widest text-slate-400">Hardware</p>
-            <p class="mt-1 font-semibold text-white" data-i18n="focusTwo">Prototype Gears</p>
+          <div class="home-focus-item">
+            <p class="home-focus-item__label">Hardware</p>
+            <p class="home-focus-item__value" data-i18n="focusTwo">Prototype Gears</p>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <!-- 将来コンテンツを追加する際に再利用する Explore ナビゲーション -->
-  <!--
-  <section class="relative">
-    <div class="mx-auto max-w-6xl px-6 pb-16">
-      <nav aria-label="Site sections" class="rounded-[32px] border border-white/10 bg-white/5 p-8 shadow-[0_40px_80px_-40px_rgba(99,102,241,0.4)] backdrop-blur">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.4em] text-slate-400">Explore</h2>
-        <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <li>
-            <a href="products/index.html" class="group relative flex items-center justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-slate-200 transition hover:border-accent/50 hover:bg-white/10">
-              <div class="flex flex-col text-left">
-                <span class="text-[11px] font-semibold uppercase tracking-[0.4em] text-slate-400" data-i18n="footerProductsLabel">Products</span>
-                <span class="mt-3 text-sm text-slate-200" data-i18n="footerProductsBody">最新プロダクトのコレクションを見る</span>
-              </div>
-              <span class="ml-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/15 text-accent transition group-hover:bg-accent group-hover:text-ink">
-                →
-              </span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </section>
-  -->
-  <footer class="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10 text-xs text-slate-500 md:flex-row md:items-start md:justify-between">
-    <span>© 2025 Masahi_desu Works</span>
+  <footer class="site-footer">
+    <div class="page-container site-footer__inner">
+      <span class="site-footer__copyright">© 2025 Masahi_desu Works</span>
     <div data-include="footer" data-footer-src="partials/footer.html"></div>
+    </div>
   </footer>
   <script src="theme.js"></script>
   <script src="footer.js"></script>

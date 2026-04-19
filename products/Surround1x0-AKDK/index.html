@@ -72,23 +72,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Outfit"', 'system-ui', 'sans-serif']
-          },
-          colors: {
-            ink: '#0f172a',
-            accent: '#38f9d7',
-            glow: '#6366f1'
-          }
-        }
-      }
-    };
-  </script>
   <link rel="stylesheet" href="../../theme.css">
   <script>
     (function () {
@@ -110,62 +93,62 @@
     })();
   </script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-ink font-sans text-slate-100 antialiased relative overflow-x-hidden">
-  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
-    <div class="absolute top-20 left-10 h-72 w-72 rounded-full bg-glow/30 blur-3xl"></div>
-    <div class="absolute bottom-[-6rem] right-[10%] h-[32rem] w-[32rem] rounded-full bg-accent/20 blur-[140px]"></div>
+<body class="page-shell page-product page-product--surround">
+  <div class="page-background" data-transition-ignore>
+    <div class="page-orb page-orb--surround-glow"></div>
+    <div class="page-orb page-orb--surround-accent"></div>
   </div>
-  <div class="px-6 pt-8" data-transition-fade>
-    <div class="mx-auto flex max-w-6xl">
-      <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-1.5 text-sm font-medium text-accent transition hover:border-accent hover:bg-accent/10">
+  <div class="page-backbar" data-transition-fade>
+    <div class="page-container page-backbar__inner">
+      <a href="../index.html" data-transition-direction="left" class="page-backlink">
         <span data-i18n="back">← 一覧に戻る</span>
       </a>
     </div>
   </div>
-  <main class="relative mx-auto flex w-full max-w-6xl items-start px-6 pt-16 pb-0 lg:pt-20 lg:pb-0" data-transition-fade>
+  <main class="page-container product-main" data-transition-fade>
     <!-- プロトタイプ概要 -->
-    <article class="grid w-full gap-10 rounded-[36px] border border-white/10 bg-white/5 p-10 shadow-[0_40px_80px_-40px_rgba(56,249,215,0.45)] backdrop-blur lg:grid-cols-[1.3fr_1fr]">
-      <div class="space-y-6">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.35em] text-slate-400" data-i18n="tag">Experimental Hardware</p>
-          <h1 class="text-4xl font-semibold text-white" data-i18n="title">Surround1x0-AKDK</h1>
-          <time class="block text-xs uppercase tracking-[0.3em] text-slate-500" datetime="2025-08-01" data-zi18n="date">2025年8月1日</time>
+    <article class="product-panel product-panel--glass product-panel--soft-surface product-panel--split">
+      <div class="product-stack">
+        <div class="product-header">
+          <p class="section-label" data-i18n="tag">Experimental Hardware</p>
+          <h1 class="product-title" data-i18n="title">Surround1x0-AKDK</h1>
+          <time class="product-date product-date--plain" datetime="2025-08-01" data-zi18n="date">2025年8月1日</time>
         </div>
-        <p class="whitespace-pre-line" data-i18n="body">
+        <p class="product-copy product-copy--muted" data-i18n="body">
           Surround1x0-AKDKは、分割レイアウトとトラックボールモジュールを組み合わせた実験的な入力デバイスです。
           GUIの操作と入力の切り替えをスムーズに行い、現代のコンピュータに最適な入力インターフェースを提供します。
         </p>
-        <div class="grid gap-3 sm:grid-cols-2">
-          <div class="rounded-3xl border border-white/10 bg-black/30 p-4">
-            <p class="text-xs uppercase tracking-[0.3em] text-slate-400" data-i18n="materialsTitle">Materials</p>
-            <p class="mt-2 text-sm text-slate-200" data-i18n="materialsBody">3Dプリンタ出力 PLA</p>
+        <div class="product-spec-grid">
+          <div class="product-spec-card">
+            <p class="product-spec-label" data-i18n="materialsTitle">Materials</p>
+            <p class="product-spec-value" data-i18n="materialsBody">3Dプリンタ出力 PLA</p>
           </div>
-          <div class="rounded-3xl border border-white/10 bg-black/30 p-4">
-            <p class="text-xs uppercase tracking-[0.3em] text-slate-400" data-i18n="moduleTitle">Interface</p>
-            <p class="mt-2 text-sm text-slate-200" data-i18n="moduleBody">トラックボール + 40%キーボード</p>
+          <div class="product-spec-card">
+            <p class="product-spec-label" data-i18n="moduleTitle">Interface</p>
+            <p class="product-spec-value" data-i18n="moduleBody">トラックボール + 40%キーボード</p>
           </div>
         </div>
       </div>
-      <figure class="relative overflow-hidden rounded-[28px] border border-white/10" data-mdw-media>
-        <img src="Surround1x0-AKDK.png" alt="Surround1x0-AKDK hero image" class="block h-full w-full object-cover" loading="lazy">
+      <figure class="product-media-card" data-mdw-media>
+        <img src="Surround1x0-AKDK.png" alt="Surround1x0-AKDK hero image" class="product-media-image" loading="lazy">
       </figure>
-      <div class="flex justify-end lg:col-span-2">
-        <a href="https://github.com/Masashi-desu/Surround1x0-AKDK" target="_blank" rel="noopener noreferrer" data-pressable="true" class="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2 text-sm font-semibold text-accent transition hover:border-accent hover:bg-accent/20">
+      <div class="product-cta-row">
+        <a href="https://github.com/Masashi-desu/Surround1x0-AKDK" target="_blank" rel="noopener noreferrer" data-pressable="true" class="product-link-button">
           <span>リポジトリを見る</span>
           <span aria-hidden="true">↗</span>
         </a>
       </div>
     </article>
   </main>
-  <div class="px-6 mt-16 pb-5 lg:mt-20" data-transition-fade>
-    <div class="mx-auto flex max-w-6xl">
-      <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-1.5 text-sm font-medium text-accent transition hover:border-accent hover:bg-accent/10">
+  <div class="page-bottom-bar" data-transition-fade>
+    <div class="page-container page-bottom-bar__inner">
+      <a href="../index.html" data-transition-direction="left" class="page-backlink">
         <span data-i18n="back">← 一覧に戻る</span>
       </a>
     </div>
   </div>
-  <footer class="px-6 pb-12">
-    <div class="mx-auto flex max-w-6xl justify-end">
+  <footer class="site-footer">
+    <div class="page-container site-footer__inner site-footer__inner--end">
       <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
     </div>
   </footer>

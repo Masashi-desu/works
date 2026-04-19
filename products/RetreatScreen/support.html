@@ -18,31 +18,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['"Outfit"', 'system-ui', 'sans-serif'] },
-          colors: {
-            ink: '#0a102c',
-            accent: '#ff6b4a',
-            glow: '#0f1628'
-          }
-        }
-      }
-    };
-  </script>
   <link rel="stylesheet" href="../../theme.css">
   <style>
     html { scroll-behavior: smooth; }
-    .bg-retreat {
+    .retreat-document-page {
+      --accent-color: #ff6b4a;
       background: radial-gradient(circle at 18% 16%, rgba(255, 142, 102, 0.14), transparent 38%),
                   radial-gradient(circle at 82% 22%, rgba(55, 87, 217, 0.16), transparent 34%),
                   radial-gradient(circle at 52% 86%, rgba(255, 199, 142, 0.1), transparent 42%),
                   linear-gradient(135deg, #0e1534, #0b1027 45%, #050b1c);
     }
-    :root[data-theme="light"] .bg-retreat {
+    :root[data-theme="light"] .retreat-document-page {
       background: linear-gradient(150deg, #ffffff 0%, #eef1f8 52%, #fae6da 100%);
     }
     .glass-card {
@@ -77,84 +63,86 @@
     })();
   </script>
 </head>
-<body class="min-h-screen bg-retreat text-slate-100 antialiased">
-  <div class="mx-auto w-full max-w-5xl px-6 pt-8 pb-16 space-y-8">
-    <a href="./index.html" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-slate-100 transition hover:border-accent/60 hover:text-white" data-transition-direction="left" data-i18n="back">
+<body class="page-shell retreat-document-page">
+  <div class="document-shell">
+    <a href="./index.html" class="page-backlink page-backlink--muted" data-transition-direction="left" data-i18n="back">
       ← 製品ページに戻る
     </a>
 
-    <header class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6">
-      <p class="text-xs uppercase tracking-[0.32em] text-slate-200 section-heading" data-i18n="label">Support</p>
-      <div class="mt-2 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-        <h1 class="text-2xl font-semibold text-white" data-i18n="title">RetreatScreen サポートポリシー</h1>
-        <span class="text-xs text-slate-300" data-i18n="updated">最終更新: 2026-01-12</span>
+    <header class="document-card glass-card">
+      <div class="document-card__header">
+        <p class="document-label section-heading" data-i18n="label">Support</p>
+        <div class="document-card__title-row">
+          <h1 class="document-title" data-i18n="title">RetreatScreen サポートポリシー</h1>
+          <span class="document-updated" data-i18n="updated">最終更新: 2026-01-12</span>
+        </div>
+        <p class="document-copy" data-i18n="intro">
+          個人開発者として現実的に対応できる範囲を明示し、App Store での一般的なサポート体験を損なわないことを目指します。
+        </p>
       </div>
-      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-200" data-i18n="intro">
-        個人開発者として現実的に対応できる範囲を明示し、App Store での一般的なサポート体験を損なわないことを目指します。
-      </p>
     </header>
 
-    <main class="space-y-6">
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">1</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s1Title">サポート範囲</h2>
+    <main class="document-main">
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">1</div>
+          <h2 class="document-section__title" data-i18n="s1Title">サポート範囲</h2>
         </div>
-        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+        <ul class="document-list">
           <li data-i18n="s1Item1">最新および直近のメジャー macOS に対応します。</li>
           <li data-i18n="s1Item2">基本的な使い方、動作不良、クラッシュに関する問い合わせを受け付けます。</li>
         </ul>
-        <p class="text-xs text-slate-300" data-i18n="s1Notice">
+        <p class="document-copy" data-i18n="s1Notice">
           サポート範囲や本ページの内容は、開発者の都合により予告なく変更する場合があります。
         </p>
       </section>
 
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">2</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s2Title">対応時間と目安</h2>
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">2</div>
+          <h2 class="document-section__title" data-i18n="s2Title">対応時間と目安</h2>
         </div>
-        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s2Lead">
+        <p class="document-copy" data-i18n="s2Lead">
           いただいたメールにはできるだけ早く順次返信します。個人開発のため即時の電話対応や 24 時間サポートは行っていません。
         </p>
-        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+        <ul class="document-list">
           <li data-i18n="s2Item1">アップデート提供は App Store の審査期間を含め、数週間かかる場合があります。</li>
           <li data-i18n="s2Item2">再現手順とスクリーンショットを共有いただけると解決が早まります。</li>
         </ul>
       </section>
 
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">3</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s3Title">お問い合わせ前のチェック</h2>
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">3</div>
+          <h2 class="document-section__title" data-i18n="s3Title">お問い合わせ前のチェック</h2>
         </div>
-        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+        <ul class="document-list">
           <li data-i18n="s3Item1">最新バージョンへのアップデート後も問題が再現するか</li>
           <li data-i18n="s3Item2">macOS のセキュリティとプライバシー設定で必要な権限が付与されているか</li>
           <li data-i18n="s3Item3">ショートカットやアイコン設定を変更した直後の場合はアプリ再起動で改善しないか</li>
         </ul>
       </section>
 
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">4</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s4Title">連絡先</h2>
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">4</div>
+          <h2 class="document-section__title" data-i18n="s4Title">連絡先</h2>
         </div>
-        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s4Lead">
+        <p class="document-copy" data-i18n="s4Lead">
           サポートはメールで受け付けています。RetreatScreen サポートポリシーをご確認の上、お問い合わせに必要な情報を添えてお送りください。
         </p>
-        <div class="flex flex-wrap items-center gap-3">
-          <a href="mailto:masashi.desu.dev@icloud.com" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_48px_-24px_rgba(255,107,74,0.65)] transition hover:border-accent/70 hover:text-accent hover:bg-white/15" data-i18n="s4Email">
+        <div class="document-contact-row">
+          <a href="mailto:masashi.desu.dev@icloud.com" class="document-contact-link" data-i18n="s4Email">
             masashi.desu.dev@icloud.com
           </a>
-          <span class="text-xs text-slate-300" data-i18n="s4Note">メールのみの受付となります。</span>
+          <span class="document-updated" data-i18n="s4Note">メールのみの受付となります。</span>
         </div>
       </section>
     </main>
   </div>
 
-  <footer class="px-6 pb-12">
-    <div class="mx-auto flex max-w-5xl justify-end">
+  <footer class="site-footer">
+    <div class="page-container page-container--standard site-footer__inner site-footer__inner--end">
       <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
     </div>
   </footer>

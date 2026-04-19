@@ -1,7 +1,7 @@
 /**
  * テスト概要:
  *  - 目的: フッターの言語・テーマセレクタがフォーカス時にアクセントのオレンジ系カラーへ変化することを確認する。
- *  - 期待値: フォーカスリングはアクセントカラー (rgb(253,139,44) 付近)、境界線は赤優位の暖色になる。
+ *  - 期待値: フォーカスリングの box-shadow はアクセントカラー (rgb(253,139,44) 付近)、境界線は赤優位の暖色になる。
  *  - 検証方法: ローカルサーバーで製品ページを配信し、Playwright で該当セレクタをフォーカスして計測する。
  */
 const http = require('http');
@@ -115,7 +115,7 @@ async function run() {
         };
         return {
           border: parseChannels(style.borderColor),
-          ring: parseChannels(style.getPropertyValue('--tw-ring-color'))
+          ring: parseChannels(style.boxShadow)
         };
       });
     }

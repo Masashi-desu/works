@@ -18,31 +18,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['"Outfit"', 'system-ui', 'sans-serif'] },
-          colors: {
-            ink: '#0a102c',
-            accent: '#ff6b4a',
-            glow: '#0f1628'
-          }
-        }
-      }
-    };
-  </script>
   <link rel="stylesheet" href="../../theme.css">
   <style>
     html { scroll-behavior: smooth; }
-    .bg-retreat {
+    .retreat-document-page {
+      --accent-color: #ff6b4a;
       background: radial-gradient(circle at 18% 16%, rgba(255, 142, 102, 0.14), transparent 38%),
                   radial-gradient(circle at 82% 22%, rgba(55, 87, 217, 0.16), transparent 34%),
                   radial-gradient(circle at 52% 86%, rgba(255, 199, 142, 0.1), transparent 42%),
                   linear-gradient(135deg, #0e1534, #0b1027 45%, #050b1c);
     }
-    :root[data-theme="light"] .bg-retreat {
+    :root[data-theme="light"] .retreat-document-page {
       background: linear-gradient(150deg, #ffffff 0%, #eef1f8 52%, #fae6da 100%);
     }
     .glass-card {
@@ -79,85 +65,87 @@
     })();
   </script>
 </head>
-<body class="min-h-screen bg-retreat text-slate-100 antialiased">
-  <div class="mx-auto w-full max-w-5xl px-6 pt-8 pb-16 space-y-8">
-    <a href="./index.html" class="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-slate-100 transition hover:border-accent/60 hover:text-white" data-transition-direction="left" data-i18n="back">
+<body class="page-shell retreat-document-page">
+  <div class="document-shell">
+    <a href="./index.html" class="page-backlink page-backlink--muted" data-transition-direction="left" data-i18n="back">
       ← 製品ページに戻る
     </a>
 
-    <header class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6">
-      <p class="text-xs uppercase tracking-[0.32em] text-slate-200 section-heading" data-i18n="label">Privacy</p>
-      <div class="mt-2 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-        <h1 class="text-2xl font-semibold text-white" data-i18n="title">RetreatScreen プライバシーポリシー</h1>
-        <span class="text-xs text-slate-300" data-i18n="updated">最終更新: 2026-01-12</span>
+    <header class="document-card glass-card">
+      <div class="document-card__header">
+        <p class="document-label section-heading" data-i18n="label">Privacy</p>
+        <div class="document-card__title-row">
+          <h1 class="document-title" data-i18n="title">RetreatScreen プライバシーポリシー</h1>
+          <span class="document-updated" data-i18n="updated">最終更新: 2026-01-12</span>
+        </div>
+        <p class="document-copy" data-i18n="intro">
+          RetreatScreen は「デスクトップを乱さない全画面ランチャー」というコンセプトに合わせ、個人情報や行動データを取得しない設計にしています。
+          ここではデータの扱いと通信が発生する場面を明確に示します。
+        </p>
       </div>
-      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-200" data-i18n="intro">
-        RetreatScreen は「デスクトップを乱さない全画面ランチャー」というコンセプトに合わせ、個人情報や行動データを取得しない設計にしています。
-        ここではデータの扱いと通信が発生する場面を明確に示します。
-      </p>
     </header>
 
-    <main class="space-y-6">
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">1</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s1Title">収集しないもの</h2>
+    <main class="document-main">
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">1</div>
+          <h2 class="document-section__title" data-i18n="s1Title">収集しないもの</h2>
         </div>
-        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+        <ul class="document-list">
           <li data-i18n="s1Item1">利用状況や操作ログなどの分析データ</li>
           <li data-i18n="s1Item2">メールアドレスやデバイスIDなどの個人を特定できる情報</li>
           <li data-i18n="s1Item3">ショートカット配置やアイコン設定のクラウド送信・同期</li>
         </ul>
-        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s1Note">
+        <p class="document-copy" data-i18n="s1Note">
           これらの情報はアプリ内に保存されるだけで、開発者サーバーや第三者へ送信されることはありません。
         </p>
       </section>
 
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">2</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s2Title">通信が発生するケース</h2>
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">2</div>
+          <h2 class="document-section__title" data-i18n="s2Title">通信が発生するケース</h2>
         </div>
-        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s2Lead">
+        <p class="document-copy" data-i18n="s2Lead">
           URLショートカットを追加する際のみ、指定したURLのホストに対して必要な情報（サイト名・ファビコンなど）を取得する通信（HTTP/HTTPS）を行います。サーバーからリダイレクトが指示された場合は転送先ドメインにも接続されることがありますが、それ以外の目的の通信は行いません。
         </p>
-        <ul class="list-disc space-y-2 pl-6 text-sm leading-relaxed text-slate-200">
+        <ul class="document-list">
           <li data-i18n="s2Item1">取得したメタデータは端末内に保存され、外部送信や解析には利用しません。</li>
           <li data-i18n="s2Item2">リダイレクトが発生した場合を除き、通信先は指定URLのホストのみに限定されます。</li>
           <li data-i18n="s2Item3">バックグラウンドでの継続的なトラッキングや広告用途の通信は行いません。</li>
         </ul>
       </section>
 
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">3</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s3Title">データの保存場所</h2>
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">3</div>
+          <h2 class="document-section__title" data-i18n="s3Title">データの保存場所</h2>
         </div>
-        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s3Body">
+        <p class="document-copy" data-i18n="s3Body">
           追加したショートカットの並びやカスタムアイコンは、macOS のアプリケーションコンテナ領域に保存されます。本アプリがこれらのデータを外部に送信することはありません。
           なお、Time Machine や iCloud などの macOS 標準のバックアップ機能をユーザーが有効にしている場合、OS の仕組みによりバックアップ対象となることがあります。
         </p>
       </section>
 
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">4</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s4Title">ポリシーの更新</h2>
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">4</div>
+          <h2 class="document-section__title" data-i18n="s4Title">ポリシーの更新</h2>
         </div>
-        <p class="text-sm leading-relaxed text-slate-200" data-i18n="s4Body">
+        <p class="document-copy" data-i18n="s4Body">
           本ポリシーはアプリのバージョンアップに伴い予告なく変更される場合があります。
           最新の内容は本ページで案内し、更新日を記載します。
         </p>
       </section>
 
-      <section class="glass-card rounded-3xl px-6 py-5 sm:px-8 sm:py-6 space-y-4">
-        <div class="flex items-center gap-3">
-          <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-accent text-lg font-semibold">5</div>
-          <h2 class="text-lg font-semibold text-white" data-i18n="s5Title">更新履歴</h2>
+      <section class="document-card glass-card document-section">
+        <div class="document-section__header">
+          <div class="document-section__index">5</div>
+          <h2 class="document-section__title" data-i18n="s5Title">更新履歴</h2>
         </div>
-        <dl class="space-y-3 text-sm leading-relaxed text-slate-200">
-          <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-            <dt class="font-semibold text-white" data-i18n="s5Date1">2026-01-12</dt>
+        <dl class="document-history">
+          <div class="document-history__entry">
+            <dt class="document-history__date" data-i18n="s5Date1">2026-01-12</dt>
             <dd data-i18n="s5Note1">初版公開（RetreatScreen プライバシーポリシーを掲載）</dd>
           </div>
         </dl>
@@ -165,8 +153,8 @@
     </main>
   </div>
 
-  <footer class="px-6 pb-12">
-    <div class="mx-auto flex max-w-5xl justify-end">
+  <footer class="site-footer">
+    <div class="page-container page-container--standard site-footer__inner site-footer__inner--end">
       <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
     </div>
   </footer>

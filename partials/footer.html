@@ -1,23 +1,23 @@
-<div class="flex flex-wrap items-end justify-end gap-6 text-right">
-  <div class="flex flex-col gap-1">
-    <label for="footer-language" class="text-[10px] uppercase tracking-[0.35em] text-slate-500">Language</label>
-    <div class="relative inline-flex items-center">
-      <select id="footer-language" class="lang-select appearance-none rounded-full border border-white/20 bg-white/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 shadow-sm backdrop-blur transition hover:border-white/40 focus:outline-none focus:ring-2 focus:ring-accent">
+<div class="site-footer__actions">
+  <div class="site-footer__control">
+    <label for="footer-language" class="site-footer__label">Language</label>
+    <div class="site-footer__select-shell">
+      <select id="footer-language" class="lang-select">
         <option value="ja">日本語</option>
         <option value="en">English</option>
       </select>
-      <span class="pointer-events-none absolute right-3 text-[10px] text-slate-400">▾</span>
+      <span class="site-footer__icon">▾</span>
     </div>
   </div>
-  <div class="flex flex-col gap-1">
-    <label for="footer-theme" class="theme-indicator text-[10px] uppercase tracking-[0.35em] text-slate-500" data-i18n="themeLabel">テーマ</label>
-    <div class="relative inline-flex items-center">
-      <select id="footer-theme" class="theme-select appearance-none rounded-full border border-white/20 bg-white/10 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 shadow-sm backdrop-blur transition hover:border-white/40 focus:outline-none focus:ring-2 focus:ring-accent">
+  <div class="site-footer__control">
+    <label for="footer-theme" class="site-footer__label theme-indicator" data-i18n="themeLabel">テーマ</label>
+    <div class="site-footer__select-shell">
+      <select id="footer-theme" class="theme-select">
         <option value="system" data-i18n="themeSystem">システム</option>
         <option value="light" data-i18n="themeLight">ライト</option>
         <option value="dark" data-i18n="themeDark">ダーク</option>
       </select>
-      <span class="theme-select-icon pointer-events-none absolute right-3 text-[10px] text-slate-400">▾</span>
+      <span class="site-footer__icon theme-select-icon">▾</span>
     </div>
   </div>
 </div>

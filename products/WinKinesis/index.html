@@ -77,23 +77,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Outfit"', 'system-ui', 'sans-serif']
-          },
-          colors: {
-            ink: '#0f172a',
-            accent: '#38f9d7',
-            glow: '#6366f1'
-          }
-        }
-      }
-    };
-  </script>
   <link rel="stylesheet" href="../../theme.css">
   <script>
     (function () {
@@ -115,24 +98,28 @@
     })();
   </script>
 </head>
-<body class="flex min-h-screen items-center justify-center bg-gradient-to-br from-ink via-slate-900 to-black font-sans text-slate-100 antialiased relative overflow-x-hidden">
-  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
-    <div class="absolute top-10 left-1/3 h-64 w-64 rounded-full bg-glow/30 blur-3xl"></div>
-    <div class="absolute bottom-[-4rem] right-1/4 h-80 w-80 rounded-full bg-accent/20 blur-[120px]"></div>
+<body class="page-shell page-shell--centered page-product--redirect">
+  <div class="page-background" data-transition-ignore>
+    <div class="page-orb page-orb--redirect-glow"></div>
+    <div class="page-orb page-orb--redirect-accent"></div>
   </div>
   <!-- 外部サイト遷移 -->
-  <div class="max-w-lg rounded-[32px] border border-white/10 bg-white/5 p-10 text-center shadow-[0_40px_80px_-40px_rgba(56,249,215,0.45)] backdrop-blur" data-transition-fade>
-    <p class="text-xs uppercase tracking-[0.35em] text-slate-400" data-i18n="tag">Smart Window Manager</p>
-    <h1 class="mt-4 text-3xl font-semibold text-white" data-i18n="title">WinKinesis</h1>
-    <p class="mt-6 text-sm leading-relaxed text-slate-200" data-i18n="body">
+  <div class="page-container page-container--compact" data-transition-fade>
+    <div class="redirect-panel">
+      <p class="redirect-panel__label" data-i18n="tag">Smart Window Manager</p>
+      <h1 class="redirect-panel__title" data-i18n="title">WinKinesis</h1>
+      <p class="redirect-panel__copy" data-i18n="body">
       WinKinesisへリダイレクトしています。数秒後にページが移動しない場合は、下のボタンからアクセスしてください。
-    </p>
-    <a href="https://winkinesis.xyz" target="_blank" rel="noopener noreferrer" data-pressable="true" class="mt-8 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-ink transition hover:bg-white" data-i18n="cta">
+      </p>
+      <a href="https://winkinesis.xyz" target="_blank" rel="noopener noreferrer" data-pressable="true" class="button button--primary redirect-panel__action" data-i18n="cta">
       公式サイトを開く
-    </a>
+      </a>
+    </div>
   </div>
-  <footer class="absolute bottom-6 right-6 text-right">
-    <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
+  <footer class="site-footer" style="position:absolute; right:0; bottom:1.5rem; width:100%;">
+    <div class="page-container site-footer__inner site-footer__inner--end">
+      <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
+    </div>
   </footer>
   <script src="../../theme.js"></script>
   <script src="../../footer.js"></script>

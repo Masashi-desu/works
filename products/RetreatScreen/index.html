@@ -76,26 +76,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Outfit"', 'system-ui', 'sans-serif']
-          },
-          colors: {
-            ink: '#0a102c',
-            accent: '#ff6b4a',
-            glow: '#0f1628'
-          }
-        }
-      }
-    };
-  </script>
   <link rel="stylesheet" href="../../theme.css">
   <style>
     html { scroll-behavior: smooth; }
+    .retreat-landing {
+      --accent-color: #ff6b4a;
+      --text-primary: #ffffff;
+      --text-secondary: #dfe5f5;
+    }
     :root {
       --bg-from: #1b2347;
       --bg-via: #0e183a;
@@ -206,6 +194,268 @@
       height: 40px;
       width: auto;
     }
+    .retreat-backbar {
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
+    }
+    .retreat-header-card {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .retreat-header-card__icon {
+      width: 3rem;
+      height: 3rem;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+    .retreat-header-card__body {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .retreat-header-card__title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .retreat-header-card__tag {
+      margin-top: 0.25rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .retreat-hero {
+      padding-bottom: 4rem;
+    }
+    .retreat-hero__surface {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .retreat-preview {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 48px 120px -60px rgba(255, 107, 74, 0.65);
+    }
+    .retreat-preview__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent, rgba(255, 107, 74, 0.1));
+    }
+    .retreat-preview__image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .retreat-copy {
+      max-width: 100%;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      white-space: pre-line;
+    }
+    .retreat-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+    .retreat-secondary-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 3.25rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+    }
+    .retreat-secondary-link:hover {
+      color: var(--accent-color);
+      border-color: rgba(255, 107, 74, 0.6);
+      transform: translateY(-1px);
+    }
+    .retreat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-bottom: 4rem;
+    }
+    .retreat-section__head {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .retreat-section__label {
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .retreat-section__title {
+      font-size: clamp(1.875rem, 3vw, 2.5rem);
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .retreat-section__copy {
+      max-width: 48rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #ffffff;
+      white-space: pre-line;
+    }
+    .retreat-feature-grid,
+    .retreat-step-grid,
+    .retreat-spec-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .retreat-feature-card,
+    .retreat-step-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.05));
+    }
+    .retreat-feature-card__header,
+    .retreat-step-card__header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .retreat-feature-card__badge,
+    .retreat-step-card__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--accent-color);
+    }
+    .retreat-feature-card__title,
+    .retreat-step-card__title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .retreat-feature-card__copy,
+    .retreat-step-card__copy {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: #ffffff;
+    }
+    .retreat-step-card__badge {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .retreat-spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      color: #f8fafc;
+    }
+    .retreat-spec-list__row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+    .retreat-spec-list__row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    .retreat-spec-list__row:first-child {
+      padding-top: 0;
+    }
+    .retreat-spec-list__value {
+      font-weight: 600;
+      color: #ffffff;
+      text-align: right;
+    }
+    .retreat-care-card {
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+    }
+    .retreat-care-card__title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .retreat-care-card__copy {
+      margin-top: 0.75rem;
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: #f8fafc;
+      white-space: pre-line;
+    }
+    .retreat-cta-card__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .retreat-footer {
+      padding-bottom: 3rem;
+    }
+    .retreat-footer__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (min-width: 40rem) {
+      .retreat-header-card {
+        gap: 1rem;
+      }
+      .retreat-header-card__title {
+        font-size: 1.25rem;
+      }
+    }
+    @media (min-width: 48rem) {
+      .retreat-step-grid,
+      .retreat-spec-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .retreat-cta-card__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .retreat-cta-card__actions {
+        align-items: flex-end;
+      }
+    }
+    @media (min-width: 64rem) {
+      .retreat-preview {
+        aspect-ratio: 16 / 9;
+      }
+      .retreat-feature-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .retreat-step-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
   </style>
   <script>
     (function () {
@@ -227,40 +477,40 @@
     })();
   </script>
 </head>
-<body class="min-h-screen villa-bg font-sans text-slate-100 antialiased relative">
-  <div class="mx-auto mb-6 w-full max-w-6xl px-6 pt-6" data-transition-fade>
-    <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-sm font-medium text-slate-200 transition hover:border-accent/60 hover:text-white">
+<body class="page-shell retreat-landing villa-bg">
+  <div class="page-container retreat-backbar" data-transition-fade>
+    <a href="../index.html" data-transition-direction="left" class="page-backlink page-backlink--muted">
       <span data-i18n="back">← 一覧に戻る</span>
     </a>
   </div>
 
-  <div class="mx-auto mt-0 mb-6 w-full max-w-6xl px-6" data-transition-fade>
-    <div class="hero-header-card flex w-full items-center gap-3 sm:gap-4">
-      <img src="icon.png" alt="RetreatScreen icon" class="h-12 w-12 shrink-0 rounded-2xl object-cover" loading="lazy" data-mdw-media>
-      <div class="flex flex-col leading-tight">
-        <h1 class="text-lg font-semibold text-white sm:text-xl" data-i18n="title">RetreatScreen</h1>
-        <span class="text-[12px] uppercase tracking-[0.3em] text-white/80" data-i18n="tag">macOS Launcher</span>
+  <div class="page-container" data-transition-fade>
+    <div class="hero-header-card retreat-header-card">
+      <img src="icon.png" alt="RetreatScreen icon" class="retreat-header-card__icon" loading="lazy" data-mdw-media>
+      <div class="retreat-header-card__body">
+        <h1 class="retreat-header-card__title" data-i18n="title">RetreatScreen</h1>
+        <span class="retreat-header-card__tag" data-i18n="tag">macOS Launcher</span>
       </div>
     </div>
   </div>
 
-  <main class="relative mx-auto w-full max-w-6xl px-6 pb-16 pt-0" data-transition-fade>
-    <div class="section-card space-y-8">
-      <div class="relative overflow-hidden rounded-[32px] border border-white/10 shadow-[0_48px_120px_-60px_rgba(255,107,74,0.65)] glass-panel aspect-[16/10] lg:aspect-[16/9] xl:aspect-[16/8]" data-mdw-media>
-        <div class="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-accent/10"></div>
-        <img src="screenshot.png" alt="RetreatScreen preview" class="relative h-full w-full object-cover" loading="lazy">
+  <main class="page-container retreat-hero" data-transition-fade>
+    <div class="section-card retreat-hero__surface">
+      <div class="retreat-preview glass-panel" data-mdw-media>
+        <div class="retreat-preview__overlay"></div>
+        <img src="screenshot.png" alt="RetreatScreen preview" class="retreat-preview__image" loading="lazy">
       </div>
 
-      <div class="space-y-6">
-        <p class="whitespace-pre-line text-base leading-relaxed text-slate-200" style="max-width:100%" data-i18n="lede">
+      <div class="product-stack">
+        <p class="retreat-copy" data-i18n="lede">
           ⌘⇧Spaceを押すだけで、iPhoneのホーム画面のようなグリッドランチャーがフルスクリーンで立ち上がります。
           常駐するアクセサリアプリとして、集中を切らさず次のアプリやファイルにジャンプできます。
         </p>
-        <div class="flex flex-wrap items-center gap-3 justify-end">
+        <div class="retreat-actions">
           <a href="https://apps.apple.com/us/app/retreatscreen/id6757686282?mt=12&itscg=30200&itsct=apps_box_badge&mttnsubad=6757686282" class="app-store-link" aria-label="Download on the Mac App Store">
             <img src="Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store" class="app-store-badge">
           </a>
-          <a href="#details" data-pressable="true" class="inline-flex items-center gap-2 rounded-full glass-chip px-5 py-3 text-sm font-medium text-white transition hover:border-accent/60 hover:text-accent min-h-[52px]" aria-label="特徴を詳しく見る">
+          <a href="#details" data-pressable="true" class="glass-chip retreat-secondary-link" aria-label="特徴を詳しく見る">
             <span data-i18n="secondaryCta">特徴を詳しく見る</span>
             <span aria-hidden="true">→</span>
           </a>
@@ -270,105 +520,105 @@
     </div>
   </main>
 
-  <section id="details" class="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 pb-16" data-transition-fade>
-    <div class="section-card space-y-6">
-      <div class="space-y-3">
-        <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="featureLabel">Key Features</p>
-        <h2 class="text-3xl font-semibold text-white" data-i18n="featureTitle">瞬発力のあるランチャー体験</h2>
-        <p class="max-w-3xl whitespace-pre-line text-base leading-relaxed text-white" data-i18n="featureBody">
+  <section id="details" class="page-container retreat-section" data-transition-fade>
+    <div class="section-card product-stack">
+      <div class="retreat-section__head">
+        <p class="retreat-section__label" data-i18n="featureLabel">Key Features</p>
+        <h2 class="retreat-section__title" data-i18n="featureTitle">瞬発力のあるランチャー体験</h2>
+        <p class="retreat-section__copy" data-i18n="featureBody">
           RetreatScreenは常駐しつつ、呼んだときだけ全面オーバーレイで現れるランチャーです。
           ホットキーで開き、Escまたは同じキーで瞬時に閉じるので、作業のリズムを崩しません。
         </p>
       </div>
-      <div class="grid gap-6 lg:grid-cols-3" aria-label="Feature list">
-        <article class="group rounded-3xl glass-panel bg-gradient-to-br from-white/10 via-white/0 to-white/5 p-6 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-accent"><span aria-hidden="true">⌘</span></div>
-            <h3 class="text-lg font-semibold text-white" data-i18n="f1Title">ホットキートグル</h3>
+      <div class="retreat-feature-grid" aria-label="Feature list">
+        <article class="retreat-feature-card glass-panel">
+          <div class="retreat-feature-card__header">
+            <div class="retreat-feature-card__badge"><span aria-hidden="true">⌘</span></div>
+            <h3 class="retreat-feature-card__title" data-i18n="f1Title">ホットキートグル</h3>
           </div>
-          <p class="text-sm leading-relaxed text-white" data-i18n="f1Body">初期設定の⌘⇧Spaceで表示/非表示をトグル。フォーカスが外れたら自動で閉じ、デスクトップを占有しません。</p>
+          <p class="retreat-feature-card__copy" data-i18n="f1Body">初期設定の⌘⇧Spaceで表示/非表示をトグル。フォーカスが外れたら自動で閉じ、デスクトップを占有しません。</p>
         </article>
-        <article class="group rounded-3xl glass-panel bg-gradient-to-br from-white/10 via-white/0 to-white/5 p-6 space-y-4">
-          <div class="flex items-center gap-3">
-          <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-accent"><span aria-hidden="true">☰</span></div>
-            <h3 class="text-lg font-semibold text-white" data-i18n="f2Title">編集モードのグリッド</h3>
+        <article class="retreat-feature-card glass-panel">
+          <div class="retreat-feature-card__header">
+          <div class="retreat-feature-card__badge"><span aria-hidden="true">☰</span></div>
+            <h3 class="retreat-feature-card__title" data-i18n="f2Title">編集モードのグリッド</h3>
           </div>
-          <p class="text-sm leading-relaxed text-white" data-i18n="f2Body">長押しまたは「編集」で編集モードへ。ドラッグで並べ替え、＋で追加、削除は×ボタンのみ。あとから名前やアイコン画像も指定できます。</p>
+          <p class="retreat-feature-card__copy" data-i18n="f2Body">長押しまたは「編集」で編集モードへ。ドラッグで並べ替え、＋で追加、削除は×ボタンのみ。あとから名前やアイコン画像も指定できます。</p>
         </article>
-        <article class="group rounded-3xl glass-panel bg-gradient-to-br from-white/10 via-white/0 to-white/5 p-6 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-accent"><span aria-hidden="true">∞</span></div>
-            <h3 class="text-lg font-semibold text-white" data-i18n="f3Title">ガラスの別荘ランチャー</h3>
+        <article class="retreat-feature-card glass-panel">
+          <div class="retreat-feature-card__header">
+            <div class="retreat-feature-card__badge"><span aria-hidden="true">∞</span></div>
+            <h3 class="retreat-feature-card__title" data-i18n="f3Title">ガラスの別荘ランチャー</h3>
           </div>
-          <p class="text-sm leading-relaxed text-white" data-i18n="f3Body">ガラスエフェクトをまとったパネルで、美しいホームスクリーンの別荘のように整列。好みの配置で置いたショートカットを、呼びたいときに気持ちよく呼び出せます。</p>
+          <p class="retreat-feature-card__copy" data-i18n="f3Body">ガラスエフェクトをまとったパネルで、美しいホームスクリーンの別荘のように整列。好みの配置で置いたショートカットを、呼びたいときに気持ちよく呼び出せます。</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pb-16" data-transition-fade>
-    <div class="section-card space-y-6">
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+  <section class="page-container retreat-section" data-transition-fade>
+    <div class="section-card product-stack">
+        <div class="retreat-section__head">
           <div>
-          <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="flowLabel">Flow</p>
-            <h2 class="text-3xl font-semibold text-white" data-i18n="flowTitle">起動から編集までの流れ</h2>
+          <p class="retreat-section__label" data-i18n="flowLabel">Flow</p>
+            <h2 class="retreat-section__title" data-i18n="flowTitle">起動から編集までの流れ</h2>
           </div>
         </div>
-      <div class="grid gap-4 md:grid-cols-3" aria-label="How it works">
-        <div class="rounded-3xl p-6 shadow-inner glass-panel space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-accent font-semibold text-base">1</div>
-            <h3 class="text-lg font-semibold text-white" data-i18n="step1Title">⌘⇧Space で呼び出す</h3>
+      <div class="retreat-step-grid" aria-label="How it works">
+        <div class="retreat-step-card glass-panel">
+          <div class="retreat-step-card__header">
+            <div class="retreat-step-card__badge">1</div>
+            <h3 class="retreat-step-card__title" data-i18n="step1Title">⌘⇧Space で呼び出す</h3>
           </div>
-          <p class="text-base leading-relaxed text-white" data-i18n="step1Body">全画面ブラーのオーバーレイとともにランチャーを展開。Escまたは同じショートカットで即クローズ。</p>
+          <p class="retreat-step-card__copy" data-i18n="step1Body">全画面ブラーのオーバーレイとともにランチャーを展開。Escまたは同じショートカットで即クローズ。</p>
         </div>
-        <div class="rounded-3xl p-6 shadow-inner glass-panel space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-accent font-semibold text-base">2</div>
-            <h3 class="text-lg font-semibold text-white" data-i18n="step2Title">アプリ/ファイルを起動</h3>
+        <div class="retreat-step-card glass-panel">
+          <div class="retreat-step-card__header">
+            <div class="retreat-step-card__badge">2</div>
+            <h3 class="retreat-step-card__title" data-i18n="step2Title">アプリ/ファイルを起動</h3>
           </div>
-          <p class="text-base leading-relaxed text-white" data-i18n="step2Body">アイコンをクリックしてアプリ/ファイルを起動。コンテキストメニューからFinderで表示も可能です。</p>
+          <p class="retreat-step-card__copy" data-i18n="step2Body">アイコンをクリックしてアプリ/ファイルを起動。コンテキストメニューからFinderで表示も可能です。</p>
         </div>
-        <div class="rounded-3xl p-6 shadow-inner glass-panel space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-accent font-semibold text-base">3</div>
-            <h3 class="text-lg font-semibold text-white" data-i18n="step3Title">編集モードで整える</h3>
+        <div class="retreat-step-card glass-panel">
+          <div class="retreat-step-card__header">
+            <div class="retreat-step-card__badge">3</div>
+            <h3 class="retreat-step-card__title" data-i18n="step3Title">編集モードで整える</h3>
           </div>
-          <p class="text-base leading-relaxed text-white" data-i18n="step3Body">編集モードでドラッグ並べ替え、＋で追加、削除は×ボタンのみ。あとから名前変更やアイコン画像の指定もできます。</p>
+          <p class="retreat-step-card__copy" data-i18n="step3Body">編集モードでドラッグ並べ替え、＋で追加、削除は×ボタンのみ。あとから名前変更やアイコン画像の指定もできます。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pb-16" data-transition-fade>
-    <div class="section-card space-y-6">
-      <div class="flex flex-col gap-3">
-        <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="specLabel">Tech Specs</p>
-        <h2 class="text-3xl font-semibold text-white" data-i18n="specTitle">動作環境と安心設計</h2>
-        <p class="max-w-3xl text-sm leading-relaxed text-white" data-i18n="specBody">最新のmacOS体験に合わせた軽さと安心設計。呼び出す瞬間だけ姿を現し、データはMacの中だけにとどまります。</p>
+  <section class="page-container retreat-section" data-transition-fade>
+    <div class="section-card product-stack">
+      <div class="retreat-section__head">
+        <p class="retreat-section__label" data-i18n="specLabel">Tech Specs</p>
+        <h2 class="retreat-section__title" data-i18n="specTitle">動作環境と安心設計</h2>
+        <p class="retreat-section__copy" data-i18n="specBody">最新のmacOS体験に合わせた軽さと安心設計。呼び出す瞬間だけ姿を現し、データはMacの中だけにとどまります。</p>
       </div>
-      <div class="grid gap-4 md:grid-cols-2">
-        <dl class="rounded-3xl p-6 text-sm leading-relaxed text-slate-100 glass-panel">
-          <div class="flex items-baseline justify-between border-b border-white/10 pb-3">
-            <dt class="text-white" data-i18n="specOSLabel">対応OS</dt>
-            <dd class="font-semibold text-white" data-i18n="specOS">macOS Tahoe 以降</dd>
+      <div class="retreat-spec-grid">
+        <dl class="retreat-spec-list glass-panel">
+          <div class="retreat-spec-list__row">
+            <dt data-i18n="specOSLabel">対応OS</dt>
+            <dd class="retreat-spec-list__value" data-i18n="specOS">macOS Tahoe 以降</dd>
           </div>
-          <div class="flex items-baseline justify-between border-b border-white/10 py-3">
-            <dt class="text-white" data-i18n="specChipLabel">対応チップ</dt>
-            <dd class="font-semibold text-white" data-i18n="specChip">Appleシリコン / Intel</dd>
+          <div class="retreat-spec-list__row">
+            <dt data-i18n="specChipLabel">対応チップ</dt>
+            <dd class="retreat-spec-list__value" data-i18n="specChip">Appleシリコン / Intel</dd>
           </div>
-          <div class="flex items-baseline justify-between border-b border-white/10 py-3">
-            <dt class="text-white" data-i18n="specHotkeyLabel">ホットキー</dt>
-            <dd class="font-semibold text-white" data-i18n="specHotkey">⌘⇧Space（設定で変更可）</dd>
+          <div class="retreat-spec-list__row">
+            <dt data-i18n="specHotkeyLabel">ホットキー</dt>
+            <dd class="retreat-spec-list__value" data-i18n="specHotkey">⌘⇧Space（設定で変更可）</dd>
           </div>
-          <div class="flex items-baseline justify-between pt-3">
-            <dt class="text-white" data-i18n="specFocusLabel">集中モード連携</dt>
-            <dd class="font-semibold text-white" data-i18n="specFocus">近日対応予定</dd>
+          <div class="retreat-spec-list__row">
+            <dt data-i18n="specFocusLabel">集中モード連携</dt>
+            <dd class="retreat-spec-list__value" data-i18n="specFocus">近日対応予定</dd>
           </div>
         </dl>
-        <div class="rounded-3xl glass-panel bg-gradient-to-br from-white/12 via-transparent to-accent/10 p-6">
-          <h3 class="text-lg font-semibold text-white" data-i18n="careTitle">安心して使えるポイント</h3>
-          <p class="mt-3 whitespace-pre-line text-sm leading-relaxed text-slate-100" data-i18n="careBody">・起動中も作業を妨げない全画面オーバーレイ。
+        <div class="retreat-care-card glass-panel">
+          <h3 class="retreat-care-card__title" data-i18n="careTitle">安心して使えるポイント</h3>
+          <p class="retreat-care-card__copy" data-i18n="careBody">・起動中も作業を妨げない全画面オーバーレイ。
 ・ショートカットや配置はMac内にのみ保存し、外部へ出ません。
 ・初回起動もシンプルなガイドで迷わずセットアップ。</p>
         </div>
@@ -376,17 +626,17 @@
     </div>
   </section>
 
-  <section class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pb-16" data-transition-fade>
-    <div class="section-card">
-      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+  <section class="page-container retreat-section" data-transition-fade>
+    <div class="section-card retreat-cta-card">
+      <div class="retreat-cta-card__inner">
         <div>
-          <p class="text-xs uppercase tracking-[0.35em] text-white" data-i18n="ctaLabel">Get Ready</p>
-          <h2 class="text-2xl font-semibold text-white" data-i18n="ctaTitle">デスクトップをホーム画面のように</h2>
-          <p class="mt-3 max-w-2xl whitespace-pre-line text-sm leading-relaxed text-white" data-i18n="ctaBody">
+          <p class="retreat-section__label" data-i18n="ctaLabel">Get Ready</p>
+          <h2 class="document-title" data-i18n="ctaTitle">デスクトップをホーム画面のように</h2>
+          <p class="document-copy" style="max-width:32rem;" data-i18n="ctaBody">
             RetreatScreenは、散らかったデスクトップを整えて次の作業へ跳ぶためのジャンプ台です。
           </p>
         </div>
-        <div class="flex flex-col items-start gap-3 md:items-end">
+        <div class="retreat-actions retreat-cta-card__actions">
           <a href="https://apps.apple.com/us/app/retreatscreen/id6757686282?mt=12&itscg=30200&itsct=apps_box_badge&mttnsubad=6757686282" class="app-store-link" aria-label="Download on the Mac App Store">
             <img src="Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the Mac App Store" class="app-store-badge">
           </a>
@@ -395,17 +645,17 @@
     </div>
   </section>
 
-  <footer class="px-6 pb-12">
-    <div class="mx-auto flex max-w-6xl flex-col gap-4">
-      <div class="flex flex-wrap items-center gap-3">
-        <a href="./privacy.html" class="inline-flex items-center gap-2 rounded-full glass-chip px-4 py-2 text-sm font-medium text-white transition hover:border-accent/60 hover:text-accent" aria-label="プライバシーポリシー">
+  <footer class="retreat-footer">
+    <div class="page-container retreat-footer__inner">
+      <div class="document-footer-links">
+        <a href="./privacy.html" class="glass-chip retreat-secondary-link" aria-label="プライバシーポリシー">
           プライバシーポリシー
         </a>
-        <a href="./support.html" class="inline-flex items-center gap-2 rounded-full glass-chip px-4 py-2 text-sm font-medium text-white transition hover:border-accent/60 hover:text-accent" aria-label="サポート">
+        <a href="./support.html" class="glass-chip retreat-secondary-link" aria-label="サポート">
           サポート
         </a>
       </div>
-      <div class="flex justify-end">
+      <div style="display:flex; justify-content:flex-end;">
         <div data-include="footer" data-footer-src="../../partials/footer.html"></div>
       </div>
     </div>

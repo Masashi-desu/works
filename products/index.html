@@ -60,23 +60,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Outfit"', 'system-ui', 'sans-serif']
-          },
-          colors: {
-            ink: '#0f172a',
-            accent: '#38f9d7',
-            glow: '#6366f1'
-          }
-        }
-      }
-    };
-  </script>
   <link rel="stylesheet" href="../theme.css">
   <script>
     (function () {
@@ -98,66 +81,70 @@
     })();
   </script>
 </head>
-<body class="min-h-screen bg-ink font-sans text-slate-100 antialiased relative overflow-x-hidden">
-  <div class="pointer-events-none absolute inset-0 -z-10" data-transition-ignore>
-    <div class="absolute -top-32 left-8 h-72 w-72 rounded-full bg-accent/30 blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-glow/30 blur-3xl"></div>
+<body class="page-shell page-catalog">
+  <div class="page-background" data-transition-ignore>
+    <div class="page-orb page-orb--catalog-accent"></div>
+    <div class="page-orb page-orb--catalog-glow"></div>
   </div>
-  <main class="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16" data-transition-ignore>
-    <header class="flex flex-col gap-4" data-transition-fade>
+  <main class="page-container catalog-main" data-transition-ignore>
+    <header class="catalog-header" data-transition-fade>
       <!-- 製品一覧 -->
-      <p class="text-xs uppercase tracking-[0.35em] text-slate-400" data-i18n="sectionLabel">Product Portfolio</p>
-      <h1 class="text-4xl font-semibold tracking-tight" data-i18n="sectionTitle">プロダクト一覧</h1>
-      <p class="w-full text-base leading-relaxed text-slate-300" data-i18n="sectionBody">
+      <p class="section-label" data-i18n="sectionLabel">Product Portfolio</p>
+      <h1 class="section-title" data-i18n="sectionTitle">プロダクト一覧</h1>
+      <p class="section-copy" data-i18n="sectionBody">
         macOS向けのプロダクティビティツールからハードウェアまで。ビルドを重ねてきたプロジェクトのスナップショットをこちらにまとめています。
       </p>
     </header>
-    <div id="product-controls" class="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-slate-200 shadow-2xl sm:flex-row sm:items-end sm:justify-between" data-transition-fade>
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-6">
-        <div class="flex flex-col gap-2">
-          <span id="category-filter-label" class="text-xs uppercase tracking-[0.35em] text-slate-400" data-i18n="categoryFilterLabel">カテゴリ</span>
-          <div class="relative w-full sm:w-auto">
-            <select id="category-filter" class="w-full min-w-0 appearance-none rounded-2xl border border-white/10 bg-ink/60 pl-4 pr-12 py-3 text-sm text-white shadow-[0_12px_30px_rgba(15,23,42,0.45)] focus:border-white/40 focus:outline-none sm:w-auto sm:min-w-[12rem]" aria-labelledby="category-filter-label">
+    <div id="product-controls" class="catalog-panel page-surface" data-transition-fade>
+      <div class="catalog-panel__filters">
+        <div class="catalog-filter-row">
+          <div class="catalog-filter-group">
+            <span id="category-filter-label" class="catalog-filter-label" data-i18n="categoryFilterLabel">カテゴリ</span>
+            <div class="select-shell">
+              <select id="category-filter" class="select-field" aria-labelledby="category-filter-label">
             <option value="all">読み込み中...</option>
-            </select>
-            <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/70">
-              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              </select>
+              <span class="select-shell__icon">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </span>
+                </svg>
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-col gap-2">
-          <span id="sort-order-label" class="text-xs uppercase tracking-[0.35em] text-slate-400" data-i18n="sortOrderLabel">並び替え</span>
-          <div class="relative w-full sm:w-auto">
-            <select id="sort-order" class="w-full min-w-0 appearance-none rounded-2xl border border-white/10 bg-ink/60 pl-4 pr-12 py-3 text-sm text-white shadow-[0_12px_30px_rgba(15,23,42,0.45)] focus:border-white/40 focus:outline-none sm:w-auto sm:min-w-[12rem]" aria-labelledby="sort-order-label">
+          <div class="catalog-filter-group">
+            <span id="sort-order-label" class="catalog-filter-label" data-i18n="sortOrderLabel">並び替え</span>
+            <div class="select-shell">
+              <select id="sort-order" class="select-field" aria-labelledby="sort-order-label">
             <option value="date">読み込み中...</option>
-            </select>
-            <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/70">
-              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              </select>
+              <span class="select-shell__icon">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </span>
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="text-xs uppercase tracking-[0.3em] text-slate-400">
+      <div class="catalog-count">
         <span id="product-count">--</span>
       </div>
     </div>
-    <div id="product-grid" class="grid gap-8 sm:grid-cols-2 xl:grid-cols-3" data-transition-fade data-lang-sensitive></div>
-    <div class="flex flex-wrap items-center justify-between gap-6 text-sm text-slate-400" data-transition-fade>
-      <a href="../index.html" data-transition-direction="left" class="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-2 transition hover:border-white/30 hover:text-white" data-i18n="backHome">
+    <div id="product-grid" class="catalog-grid" data-transition-fade data-lang-sensitive></div>
+    <div class="catalog-meta" data-transition-fade>
+      <a href="../index.html" data-transition-direction="left" class="page-backlink page-backlink--muted" data-i18n="backHome">
         ← ホーム
       </a>
-      <span class="text-xs tracking-widest uppercase" data-i18n-scope="updatedLabel">
-        更新日: <time id="catalog-updated" class="text-slate-200"></time>
+      <span class="catalog-updated" data-i18n-scope="updatedLabel">
+        更新日: <time id="catalog-updated"></time>
       </span>
     </div>
   </main>
-  <footer class="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10 text-xs text-slate-500 md:flex-row md:items-start md:justify-between">
-    <span>© 2025 Masahi Desu Works</span>
+  <footer class="site-footer">
+    <div class="page-container site-footer__inner">
+      <span class="site-footer__copyright">© 2025 Masahi Desu Works</span>
     <div data-include="footer" data-footer-src="../partials/footer.html"></div>
+    </div>
   </footer>
   <script src="../theme.js"></script>
   <script src="../footer.js"></script>
@@ -399,7 +386,7 @@
         if (entries.length === 0) {
           if (dataLoaded) {
             const emptyState = document.createElement('div');
-            emptyState.className = 'col-span-full rounded-3xl border border-white/10 bg-white/5 p-10 text-center text-sm text-slate-400';
+            emptyState.className = 'catalog-empty-state';
             emptyState.textContent = localeConfig[lang].emptyState;
             grid.appendChild(emptyState);
             updateResultCount(lang, 0);
@@ -420,7 +407,7 @@
             }
           }
           link.href = isExternal ? item.url : internalHref;
-          link.className = 'group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-white/5 p-6 shadow-2xl transition hover:border-white/20 hover:bg-white/10';
+          link.className = 'catalog-card';
           link.setAttribute('data-transition-fade', 'true');
           link.dataset.pressable = 'true';
           if (isExternal) {
@@ -431,7 +418,7 @@
           }
 
           const glow = document.createElement('div');
-          glow.className = 'pointer-events-none absolute inset-x-0 -top-16 h-24 rounded-full bg-accent/40 blur-3xl transition-opacity duration-500 group-hover:opacity-90';
+          glow.className = 'catalog-card__glow';
           glow.style.zIndex = '-1';
 
           const baseTitle = item.title_en || item.title;
@@ -450,7 +437,7 @@
 
           if (hasMedia) {
             const mediaWrapper = document.createElement('div');
-            mediaWrapper.className = 'relative mb-4 h-40 w-full overflow-hidden rounded-2xl border border-white/10';
+            mediaWrapper.className = 'catalog-card__media';
             mediaWrapper.dataset.mdwMedia = 'true';
             const observedImages = [];
 
@@ -458,20 +445,20 @@
               const headerImg = document.createElement('img');
               headerImg.src = `${item.dir}${headerPath}`;
               headerImg.alt = `${baseTitle} header image`;
-              headerImg.className = 'absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105';
+              headerImg.className = 'catalog-card__media-image';
               headerImg.loading = 'lazy';
               observedImages.push(headerImg);
               mediaWrapper.appendChild(headerImg);
             } else {
               const placeholder = document.createElement('div');
-              placeholder.className = 'absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/40 to-slate-900/60';
+              placeholder.className = 'catalog-card__media-placeholder';
               mediaWrapper.appendChild(placeholder);
             }
 
             if (hasIcon) {
               const iconBadge = document.createElement('div');
-              iconBadge.className = 'absolute bottom-4 left-4 z-30 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-transparent p-2 shadow-[0_12px_30px_rgba(15,23,42,0.45)] backdrop-blur-lg transition duration-300';
-              icon.className = 'h-12 w-12 rounded-xl object-cover';
+              iconBadge.className = 'catalog-card__icon-badge';
+              icon.className = 'catalog-card__icon';
               icon.loading = 'lazy';
               observedImages.push(icon);
               iconBadge.appendChild(icon);
@@ -487,29 +474,27 @@
 
           const title = document.createElement('h2');
           title.textContent = lang === 'en' ? (item.title_en || item.title) : (item.title_ja || item.title);
-          title.className = 'text-2xl font-semibold text-white';
+          title.className = 'catalog-card__title';
           if (hasMedia) {
-            title.classList.add('mt-4');
-          } else {
-            title.classList.add('mt-2');
+            title.classList.add('catalog-card__title--with-media');
           }
 
           const desc = document.createElement('p');
           desc.textContent = lang === 'en' ? (item.desc_en || item.desc) : (item.desc_ja || item.desc);
-          desc.className = 'mt-3 text-sm leading-relaxed text-slate-300';
+          desc.className = 'catalog-card__description';
 
           const categories = item.categories;
           let tagList = null;
           if (Array.isArray(categories) && categories.length > 0) {
             tagList = document.createElement('div');
-            tagList.className = 'mt-4 flex flex-wrap gap-2';
+            tagList.className = 'catalog-card__tags';
             categories.forEach((category) => {
               if (!category) {
                 return;
               }
               const tag = document.createElement('span');
               tag.textContent = category;
-              tag.className = 'inline-flex items-center rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur';
+              tag.className = 'catalog-card__tag';
               tagList.appendChild(tag);
             });
           }
@@ -517,15 +502,15 @@
           const date = document.createElement('time');
           date.dateTime = item.date;
           date.textContent = localeConfig[lang].dateFormat.format(new Date(item.date));
-          date.className = 'mt-6 text-xs uppercase tracking-[0.3em] text-slate-400';
+          date.className = 'catalog-card__date';
 
           const cta = document.createElement('span');
-          cta.className = 'mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent transition group-hover:gap-3';
+          cta.className = 'catalog-card__cta';
           cta.textContent = isExternal ? localeConfig[lang].ctaExternal : localeConfig[lang].ctaInternal;
 
           const arrow = document.createElement('span');
           arrow.textContent = isExternal ? '↗' : '→';
-          arrow.className = 'transition-transform group-hover:translate-x-1';
+          arrow.className = 'catalog-card__cta-arrow';
           cta.appendChild(arrow);
 
           link.appendChild(glow);
@@ -642,7 +627,7 @@
         .catch((error) => {
           dataLoaded = true;
           const notice = document.createElement('div');
-          notice.className = 'rounded-3xl border border-red-500/40 bg-red-500/10 p-6 text-sm text-red-200 backdrop-blur';
+          notice.className = 'catalog-error-notice';
           notice.textContent = error.message;
           grid.replaceWith(notice);
         });

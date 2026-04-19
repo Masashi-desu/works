@@ -18,7 +18,7 @@
       footerEl.replaceWith(fragment);
     } catch (error) {
       console.error(error);
-      footerEl.innerHTML = '<p class="text-xs text-slate-400">Footer failed to load.</p>';
+      footerEl.innerHTML = '<p class="footer-load-error">Footer failed to load.</p>';
       injectedRoots = [footerEl];
     }
 

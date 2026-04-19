@@ -129,7 +129,7 @@ async function auditPage(browser, entry, outputBaseDir) {
     const snapshot = await page.evaluate(() => {
       const body = document.body;
       const bodyColor = getComputedStyle(body).backgroundColor;
-      const card = document.querySelector('.philosophy-card');
+      const card = document.querySelector('.home-philosophy-card');
       const cardBg = card ? getComputedStyle(card).backgroundColor : null;
       return { bodyColor, cardBg };
     });

@@ -12,3 +12,4 @@ Icon?
 .TemporaryItems
 .apdisk
 node_modules/
+package-lock.json

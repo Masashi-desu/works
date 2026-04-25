@@ -1,5 +1,22 @@
 [
   {
+    "dir": "",
+    "title": "Keycap Maker",
+    "title_ja": "Keycap Maker",
+    "title_en": "Keycap Maker",
+    "desc": "Customize and download 3D-printable keycap models.",
+    "desc_ja": "3Dプリント可能なキーキャップのモデルをカスタムしてダウンロードできます。",
+    "desc_en": "Customize and download 3D-printable keycap models.",
+    "image": "KeycapMaker/icon.png",
+    "header": "KeycapMaker/screenshot.png",
+    "date": "2026-04-25",
+    "url": "https://masashi-desu.github.io/KeycapMaker/",
+    "categories": [
+      "WebApp",
+      "keyboard"
+    ]
+  },
+  {
     "dir": "RetreatScreen/",
     "title": "RetreatScreen",
     "title_ja": "RetreatScreen",

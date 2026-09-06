@@ -915,8 +915,12 @@
     }
     const controlRect = control.getBoundingClientRect();
     const trackRect = track.getBoundingClientRect();
+    // Absolute-positioned indicators are positioned from the track's padding
+    // box, while the measured control offset is relative to its border box.
+    // Remove the inline border so the indicator shares the control's edges.
+    const trackBorderLeft = Number.isFinite(track.clientLeft) ? track.clientLeft : 0;
     return {
-      x: controlRect.left - trackRect.left,
+      x: controlRect.left - trackRect.left - trackBorderLeft,
       width: controlRect.width
     };
   }

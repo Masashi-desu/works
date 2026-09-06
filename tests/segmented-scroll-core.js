@@ -190,6 +190,7 @@ test('segment controller は class・ARIA・indicator を active stop と同期�
   const first = createFakeControl('first', { left: 24, width: 44 });
   const second = createFakeControl('second', { left: 92, width: 58 });
   const track = {
+    clientLeft: 1,
     style: createFakeStyle(),
     getBoundingClientRect() {
       return { left: 12, width: 180 };
@@ -206,7 +207,7 @@ test('segment controller は class・ARIA・indicator を active stop と同期�
   assert.equal(first.getAttribute('aria-current'), 'false');
   assert.equal(second.classList.contains('is-active'), true);
   assert.equal(second.getAttribute('aria-current'), 'true');
-  assert.equal(track.style.getPropertyValue('--segment-x'), '80px');
+  assert.equal(track.style.getPropertyValue('--segment-x'), '79px');
   assert.equal(track.style.getPropertyValue('--segment-width'), '58px');
   assert.equal(index.getState().activeId, 'second');
 });

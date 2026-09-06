@@ -1,7 +1,7 @@
 /**
  * テスト概要:
  *  - 目的: 製品一覧が全件を同時描画せず5件単位でページ切り替えし、アニメーション背景をLiquidGLのリアルタイム動画経路へ渡すことを確認する。
- *  - 期待値: 6件中1ページ目は1〜5の5section、2ページ目は6のみを描画する。前後ボタン・現在ページ・全体通番が同期し、Bartical、TypeFetch、WinKinesis背景はposter付きMP4をミュート・ループ・インライン再生する。Bartical背景は画面比率にかかわらず上端を基準に切り抜く。LiquidGLセグメントは暗色tintで動画の明部を抑え、検索sectionとの切替を640ms linearで補間する。DOM差し替え後は除去済み動画を破棄して、1ページ目へ戻したときに新しいvideo要素を再検出する。
+ *  - 期待値: 6件中1ページ目は1〜5の5section、2ページ目は6のみを描画する。前後ボタン・現在ページ・全体通番が同期し、最後の通番タブのfocus ringは横スクロール領域内でクリップしない。Bartical、TypeFetch、WinKinesis背景はposter付きMP4をミュート・ループ・インライン再生する。Bartical背景は画面比率にかかわらず上端を基準に切り抜く。LiquidGLセグメントは暗色tintで動画の明部を抑え、検索sectionとの切替を640ms linearで補間する。DOM差し替え後は除去済み動画を破棄して、1ページ目へ戻したときに新しいvideo要素を再検出する。
  *  - 検証方法: ローカル静的サーバーで /products/ をChromiumまたはWebKitに開き、DOM数、ナビ番号、ページ状態、動画属性とLiquidGL rendererの動画一覧を取得する。viewport変更後、実際のrefreshを維持したspyを使って前後ページを操作し、rendererが現在のDOMだけを追跡することを確認する。codec・GPU・実時間に依存する動画frame更新はmacOS専用のnative-media-liquidgl.jsで検証する。
  */
 const fs = require('fs');
@@ -181,6 +181,23 @@ async function main() {
     assert(firstPage.sectionIds.length === 5, 'First page did not render exactly five products', firstPage);
     assert(JSON.stringify(firstPage.productIndexes) === JSON.stringify(['0', '1', '2', '3', '4']), 'First page indexes were incorrect', firstPage);
     assert(JSON.stringify(firstPage.navNumbers) === JSON.stringify(['1', '2', '3', '4', '5']), 'First page nav did not show global numbers 1–5', firstPage);
+    await page.locator('.catalog-section-nav__number').last().focus();
+    const focusedNumberOutline = await page.evaluate(() => {
+      const number = document.querySelector('.catalog-section-nav__number:focus');
+      const style = number ? getComputedStyle(number) : null;
+      return {
+        outlineOffset: style?.outlineOffset,
+        outlineWidth: style?.outlineWidth,
+        outlineStyle: style?.outlineStyle
+      };
+    });
+    assert(
+      focusedNumberOutline.outlineOffset === '-2px'
+        && focusedNumberOutline.outlineWidth === '2px'
+        && focusedNumberOutline.outlineStyle === 'solid',
+      'Last catalog number focus ring was not kept inside the scroll container',
+      focusedNumberOutline
+    );
     assert(firstPage.page === '1' && firstPage.pageLabel === '1 / 2', 'First page status was incorrect', firstPage);
     assert(firstPage.prevDisabled && !firstPage.nextDisabled, 'First page controls were incorrect', firstPage);
     assert(firstPage.count === '5件表示 / 全6件', 'First page result count was incorrect', firstPage);

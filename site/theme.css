@@ -891,6 +891,10 @@ body.page-product--surround .page-background {
   outline-offset: 2px;
 }
 
+.catalog-section-nav__number:focus-visible {
+  outline-offset: -2px;
+}
+
 .catalog-section-nav__icon-button.is-active,
 .catalog-section-nav__number.is-active,
 .catalog-section-nav__footer-link.is-active {
